@@ -4,19 +4,19 @@ import { ReactNode } from 'react';
 import { Footer } from '../features/layout/Footer';
 import { Header } from '../features/layout/Header';
 
+
+
 interface BaseLayoutProps {
   children?: ReactNode;
 }
 
 export function BaseLayout({ children }: BaseLayoutProps) {
   return (
-    <Flex flexDirection="column" height="100vh">
+    <Flex flexDirection="column" height="100vh" paddingInline={[4,8,8,44]}>
       <Header />
-
       <Box as="main" flex="1 0 auto" display="block">
         <Container>{children}</Container>
       </Box>
-
       <Footer />
     </Flex>
   );

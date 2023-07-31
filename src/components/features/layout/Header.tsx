@@ -1,76 +1,53 @@
-import { Box, BoxProps, Container, Flex, forwardRef } from '@chakra-ui/react';
+import { Box, BoxProps, Container, Flex, Heading, forwardRef } from '@chakra-ui/react';
+import { Icon } from '@chakra-ui/react';
 import Link from 'next/link';
-import { FaReact } from 'react-icons/fa';
+import { AiFillGithub,AiFillLinkedin,AiFillMail} from 'react-icons/ai';
 
-import { NavLink } from '@/components/shared/Link';
-
-const NavigationLink = forwardRef<BoxProps, 'div'>((props, ref) => (
-  <Box
-    ref={ref}
-    as="a"
-    px={4}
-    py={1}
-    mx={3}
-    my={5}
-    display="block"
-    fontSize="sm"
-    borderRadius={5}
-    fontWeight="medium"
-    _hover={{
-      bg: 'secondary',
-    }}
-    sx={{
-      '&.active': {
-        bg: 'gray.700',
-      },
-    }}
-    {...props}
-  />
-));
 
 const items = [
   {
-    href: '/about',
-    title: 'About',
+    href: 'https://github.com/JoeyQuandt',
+    icon: AiFillGithub,
   },
   {
-    href: '/blog',
-    title: 'Blog',
+    href: 'https://www.linkedin.com/in/joey-quandt/',
+    icon: AiFillLinkedin,
   },
   {
-    href: '/examples',
-    title: 'Examples',
+    href: 'mailto: joeyquandt@outlook.com',
+    icon: AiFillMail,
   },
 ];
 
-function Navigation() {
-  return (
-    <Flex as="nav">
-      {items.map(item => {
-        return (
-          <Box key={item.title}>
-            <NavLink href={item.href} passHref legacyBehavior>
-              <NavigationLink>{item.title}</NavigationLink>
-            </NavLink>
-          </Box>
-        );
-      })}
+
+function Navigation(){
+  return(
+    <Flex gap={2.5}>
+      {
+        items.map((item)=>{
+          return(
+            <Link href={item.href} key={crypto.randomUUID()}>
+              <Icon as={item.icon} boxSize={10}/>
+            </Link>
+          )
+        })
+      }
     </Flex>
-  );
+  )
 }
+
 
 export function Header() {
   return (
-    <Box as="header" bg="primary" color="white">
+    <Box as="header" color="white">
       <Container>
-        <Flex flexShrink={0} alignItems="center">
+      <Flex flexShrink={0} alignItems="center" flexDirection={["column","row"]} justifyContent={["center","space-between","space-between"]}>
           <Link href="/" legacyBehavior>
-            <Flex as="a" mr={2} cursor="pointer">
-              <FaReact size={30} />
+            <Flex as="a" mr={2} cursor="pointer" marginTop={5}>
+              <Heading as="h1" fontWeight="700" marginBottom={5}>joeyquandt</Heading>
             </Flex>
           </Link>
-
-          <Navigation />
+          <Navigation/>
         </Flex>
       </Container>
     </Box>
