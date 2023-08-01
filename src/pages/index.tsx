@@ -4,6 +4,7 @@ import { NextSeo } from 'next-seo';
 
 import { Hero } from '@/components/features/hero';
 import { Skills } from '@/components/features/skills';
+import { Projects } from '@/components/features/projects';
 
 type PageProps = {};
 
@@ -18,6 +19,7 @@ const Page: NextPage<PageProps> = () => (
         <Show below="lg">
           <Divider/>
         </Show>
+        <Projects/>
     </Stack>
   </>
 );

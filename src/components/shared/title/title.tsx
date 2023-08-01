@@ -8,11 +8,11 @@ type TitleProps = {
 
 export function Title({title,text} : TitleProps){
     return(
-        <Flex color="white" flexDirection="column" textAlign={["center","left"]} gap={3.5}>
+        <Flex color="white" flexDirection="column" textAlign={["center","center","left"]} gap={3.5}>
             <Heading as="h2" textTransform={title==="html" || title==="css" ? "uppercase" : "capitalize"}>
                 {title}
             </Heading>
-            <Text>
+            <Text color="gray">
                 {text}
             </Text>
         </Flex>

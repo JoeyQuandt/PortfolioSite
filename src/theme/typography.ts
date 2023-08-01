@@ -18,7 +18,7 @@ export const fontSizes =  {
   '5xl': '3rem',
   '6xl': '4rem',
   h1: [38, 72],
-  h2: [30, 40],
+  h2: [50, 60],
   body: 14,
   button: 14,
   small: 12,

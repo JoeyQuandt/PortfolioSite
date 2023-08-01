@@ -1,6 +1,8 @@
+import { OvalIcon } from "@/components/shared/backgroundIcons"
 import { Title } from "@/components/shared/title"
 
 import { Grid } from "@chakra-ui/react"
+
 
 const skills = [
     {
@@ -39,6 +41,7 @@ export function Skills(){
                     )
                 })
             }
+              <OvalIcon position="absolute" bottom="-735" right="0" transform="rotate(180deg)"/>
         </Grid>
     )
 }
