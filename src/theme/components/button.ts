@@ -5,9 +5,11 @@ export const button: ComponentStyleConfig = {
   baseStyle: {
     borderRadius: 'none',
     fontWeight: 'regular',
+    textTransform: "uppercase",
+    textUnderlineOffset: "12px"
   },
   defaultProps: {
-    variant: 'primary',
+    variant: 'link',
     size: 'md',
   },
   variants: {
