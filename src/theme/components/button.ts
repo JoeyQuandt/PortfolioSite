@@ -5,8 +5,8 @@ export const button: ComponentStyleConfig = {
   baseStyle: {
     borderRadius: 'none',
     fontWeight: 'regular',
-    textTransform: "uppercase",
-    textUnderlineOffset: "12px"
+    textTransform: 'uppercase',
+    textUnderlineOffset: '12px',
   },
   defaultProps: {
     variant: 'link',
@@ -26,6 +26,10 @@ export const button: ComponentStyleConfig = {
       ...theme.components.Link.baseStyle,
       // Overries with our own changes
       ...link.baseStyle,
+      _hover: {
+        color: 'secondary',
+        transition: 'all 0.3s ease',
+      },
     },
     icon: {
       backgroundColor: 'black',

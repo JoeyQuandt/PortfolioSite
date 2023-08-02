@@ -1,4 +1,4 @@
-import { Divider, Heading,Show, Stack, Text } from '@chakra-ui/react';
+import { Divider, Heading, Show, Stack, Text } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 
@@ -8,18 +8,17 @@ import { Projects } from '@/components/features/projects';
 
 type PageProps = {};
 
-
 const Page: NextPage<PageProps> = () => (
   <>
     <NextSeo title="Homepage" description="This is the homepage" />
     <Stack spacing="4">
-        <Hero/>
-        <Divider/>
-        <Skills/>
-        <Show below="lg">
-          <Divider/>
-        </Show>
-        <Projects/>
+      <Hero />
+      <Divider />
+      <Skills />
+      <Show below="lg">
+        <Divider />
+      </Show>
+      <Projects />
     </Stack>
   </>
 );

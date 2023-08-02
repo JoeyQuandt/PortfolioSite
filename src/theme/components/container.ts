@@ -4,6 +4,6 @@ export const container: ComponentStyleConfig = {
   baseStyle: {
     maxWidth: '100%',
     width: 'container.xl',
-    padding: '0'
+    padding: '0',
   },
 };

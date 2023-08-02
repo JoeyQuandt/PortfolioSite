@@ -6,7 +6,7 @@ export const fonts: ChakraTheme['fonts'] = {
   mono: `"Courier New", Courier, monospace`,
 };
 
-export const fontSizes =  {
+export const fontSizes = {
   xs: '0.75rem',
   sm: '0.875rem',
   md: '1rem',
@@ -22,4 +22,4 @@ export const fontSizes =  {
   body: 14,
   button: 14,
   small: 12,
-}
+};

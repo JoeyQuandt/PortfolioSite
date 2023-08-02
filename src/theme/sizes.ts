@@ -19,7 +19,3 @@ export const space: ChakraTheme['space'] = {
   sm: rem(12),
   md: rem(16),
 };
-
-
-
-

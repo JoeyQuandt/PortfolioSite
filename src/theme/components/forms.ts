@@ -1,4 +1,4 @@
-import { ComponentStyleConfig} from '@chakra-ui/react';
+import { ComponentStyleConfig } from '@chakra-ui/react';
 
 export const input: ComponentStyleConfig = {
   baseStyle: {
@@ -9,31 +9,32 @@ export const input: ComponentStyleConfig = {
   defaultProps: {
     variant: 'flushed',
     size: 'md',
-    color: "white",
+    color: 'white',
     focusBorderColor: 'succes',
     errorBorderColor: 'warning',
-  variants: {
-    primary: {
-      backgroundColor: 'primary',
-      color: 'white',
-    },
-    secondary: {
-      backgroundColor: 'secondary',
-      color: 'white',
+    variants: {
+      primary: {
+        backgroundColor: 'primary',
+        color: 'white',
+      },
+      secondary: {
+        backgroundColor: 'secondary',
+        color: 'white',
+      },
     },
   },
-}}
+};
 export const textarea: ComponentStyleConfig = {
-    baseStyle: {
-        borderRadius: 'none',
-        fontWeight: 'regular',
-        marginBottom: 8,
-      },
-      defaultProps: {
-        variant: 'flushed',
-        size: 'md',
-        color: "white",
-        focusBorderColor: 'succes',
-        errorBorderColor: 'warning',
-    }
-}
+  baseStyle: {
+    borderRadius: 'none',
+    fontWeight: 'regular',
+    marginBottom: 8,
+  },
+  defaultProps: {
+    variant: 'flushed',
+    size: 'md',
+    color: 'white',
+    focusBorderColor: 'succes',
+    errorBorderColor: 'warning',
+  },
+};

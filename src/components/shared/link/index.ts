@@ -1,1 +1,1 @@
-export * from "./LinkTag"
+export * from './LinkTag';
