@@ -1,5 +1,4 @@
-import { Box, Image } from '@chakra-ui/react';
-import { CircleIcon, OvalIcon } from '@/components/shared/backgroundIcons';
+import { Box, Image } from "@chakra-ui/react";
 
 type HeroImageProps = {
   href: string;

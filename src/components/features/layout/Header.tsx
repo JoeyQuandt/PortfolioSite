@@ -1,5 +1,5 @@
 import { SocialIcons, Logo } from '@/components/shared/socialIcons';
-import { Box, BoxProps, Container, Flex, Heading, forwardRef } from '@chakra-ui/react';
+import { Box,Container, Flex } from '@chakra-ui/react';
 
 export function Header() {
   return (

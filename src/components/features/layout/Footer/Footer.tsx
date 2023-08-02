@@ -1,7 +1,6 @@
 import { Box, Flex, Heading, Text, Stack, Divider, Container } from '@chakra-ui/react';
 import { FormArea } from './FormArea';
 import { SocialIcons, Logo } from '@/components/shared/socialIcons';
-import { OvalIcon } from '@/components/shared/backgroundIcons';
 
 export function Footer() {
   return (

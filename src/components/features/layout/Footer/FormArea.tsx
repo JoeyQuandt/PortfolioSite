@@ -1,4 +1,3 @@
-import { LinkTag } from '@/components/shared/link';
 import { FormControl, Input, Textarea, Button, Stack } from '@chakra-ui/react';
 
 const placeholderStyles = {

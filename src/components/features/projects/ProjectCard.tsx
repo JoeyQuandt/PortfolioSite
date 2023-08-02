@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Stack, Image, Tag, Flex, Heading, Grid, Show, Box } from '@chakra-ui/react';
+import { Stack, Tag, Flex, Heading, Grid, Show, Box } from '@chakra-ui/react';
 
 import { LinkTag } from '@/components/shared/link';
 
