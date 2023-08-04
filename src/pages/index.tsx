@@ -10,7 +10,7 @@ type PageProps = {};
 
 const Page: NextPage<PageProps> = () => (
   <>
-    <NextSeo title="Homepage" description="This is the homepage" />
+    <NextSeo title="Homepage" description="Joey Quandt Front end developer portfolio site" />
     <Stack spacing="4">
       <Hero />
       <Divider />
