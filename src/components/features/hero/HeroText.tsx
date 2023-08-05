@@ -1,11 +1,16 @@
 import { Stack, Heading, Text } from '@chakra-ui/react';
 import { LinkTag } from '@/components/shared/link';
 
-export function HeroText() {
+type HeroTextProps = {
+  heading: string | undefined;
+  text: string | undefined;
+};
+
+export function HeroText({ heading, text }: HeroTextProps) {
   return (
     <Stack color="white" textAlign={['center', 'center', 'left']} maxWidth="600px">
       <Heading as="h1" fontSize={[30, 50, 60]}>
-        Nice to meet you! I'm {''}
+        {`${heading} `}
         <LinkTag
           href="https://www.linkedin.com/in/joey-quandt/"
           textTransform={'capitalize'}
@@ -14,10 +19,7 @@ export function HeroText() {
           Joey Quandt
         </LinkTag>
       </Heading>
-      <Text marginBlock="6">
-        Based in the Netherlands, I’m a front-end developer passionate about building accessible web
-        apps that users love.
-      </Text>
+      <Text marginBlock="6">{text}</Text>
       <LinkTag href="https://chakra-ui.com/docs/styled-system/theme">Contact me</LinkTag>
     </Stack>
   );

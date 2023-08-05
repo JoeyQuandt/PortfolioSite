@@ -1,7 +1,7 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image } from '@chakra-ui/react';
 
 type HeroImageProps = {
-  href: string;
+  href: string | undefined;
   alt: string;
 };
 

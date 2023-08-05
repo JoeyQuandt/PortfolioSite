@@ -1,8 +1,13 @@
 import { Box, Flex, Heading, Text, Stack, Divider, Container } from '@chakra-ui/react';
 import { FormArea } from './FormArea';
 import { SocialIcons, Logo } from '@/components/shared/socialIcons';
+import { PageContact } from '@/gql/graphql';
 
-export function Footer() {
+type FooterProps = {
+  content: PageContact | undefined;
+};
+
+export function Footer({ content }: FooterProps) {
   return (
     <Box bgColor="tertiary" paddingInline={[4, 8, 8, 44]}>
       <Container
@@ -21,12 +26,9 @@ export function Footer() {
         >
           <Stack spacing={4} maxWidth={{ lg: '445px' }} marginBottom={18}>
             <Heading as="h2" fontSize={[30, 50, 60]}>
-              Contact
+              {content?.contactTitle}
             </Heading>
-            <Text>
-              I would love to hear about your project and how I could help. Please fill in the form,
-              and I’ll get back to you as soon as possible.
-            </Text>
+            <Text>{content?.contactText}</Text>
           </Stack>
           <FormArea marginBottom={20} />
         </Flex>

@@ -1,8 +1,8 @@
 import { Heading, Text, Flex } from '@chakra-ui/react';
 
 type TitleProps = {
-  title: string;
-  text: string;
+  title: string | undefined;
+  text: string | undefined;
 };
 
 export function Title({ title, text }: TitleProps) {
