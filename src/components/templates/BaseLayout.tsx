@@ -13,22 +13,6 @@ const GET_CONTENT = gql`
   query MyQuery {
     pageContent(where: { id: "clkwsyp6d93ip0auv8sc9obo8" }) {
       pageContentHome {
-        ... on PageHero {
-          heroHeading
-          heroText
-          heroImage {
-            fileName
-            url
-          }
-        }
-        ... on PageSkill {
-          skills {
-            ... on Skill {
-              pageSkillSubTitle
-              skillTitle
-            }
-          }
-        }
         ... on PageContact {
           contactText
           contactTitle

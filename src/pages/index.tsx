@@ -33,13 +33,29 @@ const GET_CONTENT = gql`
           contactText
           contactTitle
         }
+        ... on PageProject {
+          projects {
+            ... on Project {
+              projectShowButtons
+              projectImage {
+                url
+              }
+              projectTitle
+              projectTag
+              website
+              github
+            }
+          }
+        }
       }
     }
   }
 `;
 
 const Page: NextPage = () => {
-  const { data } = useQuery(GET_CONTENT);
+  const { loading, error, data } = useQuery(GET_CONTENT);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
 
   return (
     <>
@@ -51,7 +67,7 @@ const Page: NextPage = () => {
         <Show below="lg">
           <Divider />
         </Show>
-        <Projects />
+        <Projects content={findObjectInArray(data.pageContent.pageContentHome, 'PageProject')} />
       </Stack>
     </>
   );

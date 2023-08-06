@@ -1,35 +1,14 @@
 import { Flex, Grid, Heading, Input, Stack, Textarea } from '@chakra-ui/react';
 import { ProjectCard } from './ProjectCard';
 import { LinkTag } from '@/components/shared/link';
+import { PageProject, Project } from '@/gql/graphql';
 
-const ProjectsData = [
-  {
-    href: './images/project.png',
-    title: 'Design Portfolio',
-    tags: ['HTML', 'CSS'],
-    github: 'https://github.com/JoeyQuandt',
-  },
-  {
-    href: './images/project.png',
-    title: 'Design Portfolio',
-    tags: ['HTML', 'CSS'],
-    github: 'https://github.com/JoeyQuandt',
-  },
-  {
-    href: './images/project.png',
-    title: 'Design Portfolio',
-    tags: ['HTML', 'CSS', 'JavaScript', 'React'],
-    github: 'https://github.com/JoeyQuandt',
-  },
-  {
-    href: './images/project.png',
-    title: 'Design Portfolio',
-    tags: ['HTML', 'CSS', 'JavaScript', 'React'],
-    github: 'https://github.com/JoeyQuandt',
-  },
-];
+type ProjectsProps = {
+  content: PageProject | undefined;
+};
 
-export function Projects() {
+export function Projects({ content }: ProjectsProps) {
+  const projectsData = content?.projects;
   return (
     <Stack color="white" marginBlock={{ lg: 24 }}>
       <Flex justifyContent="space-between" marginBottom={10} alignItems="center">
@@ -39,14 +18,16 @@ export function Projects() {
         <LinkTag href="./contact">Contact Me</LinkTag>
       </Flex>
       <Grid templateColumns={{ md: 'repeat(2,1fr)' }} gap={5}>
-        {ProjectsData.map(item => {
+        {projectsData?.map(item => {
           return (
             <ProjectCard
               key={crypto.randomUUID()}
-              href={item.href}
-              title={item.title}
-              tags={item.tags}
+              projectImage={item.projectImage}
+              projectTitle={item.projectTitle}
+              projectShowButtons={item.projectShowButtons}
+              projectTag={item.projectTag}
               github={item.github}
+              website={item.website}
             />
           );
         })}

@@ -4,14 +4,16 @@ import { Stack, Tag, Flex, Heading, Grid, Show, Box } from '@chakra-ui/react';
 
 import { LinkTag } from '@/components/shared/link';
 
-type ProjectCardProps = {
-  href: string;
-  title: string;
-  tags: string[];
-  github: string;
-};
+import { Project } from '@/gql/graphql';
 
-export function ProjectCard({ href, title, tags, github }: ProjectCardProps) {
+export function ProjectCard({
+  projectImage,
+  projectTitle,
+  projectTag,
+  github,
+  website,
+  projectShowButtons,
+}: Project) {
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseEnter = () => {
@@ -25,14 +27,14 @@ export function ProjectCard({ href, title, tags, github }: ProjectCardProps) {
   return (
     <Stack gap={4} marginBottom={10}>
       <Box
-        backgroundImage={href}
+        backgroundImage={projectImage?.url}
         width="100%"
         backgroundSize="cover"
         minHeight={['253px', '253px', '253px', '400px']}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {isHovering && (
+        {isHovering && projectShowButtons && (
           <Grid
             placeItems="center"
             height="100%"
@@ -42,15 +44,15 @@ export function ProjectCard({ href, title, tags, github }: ProjectCardProps) {
             filter="auto"
           >
             <Flex flexDirection="column" gap={10} textAlign="center">
-              <LinkTag href={`./${title}`}>View Project</LinkTag>
-              <LinkTag href={github}>View code</LinkTag>
+              <LinkTag href={website ? website : 'www.joeyquandt.nl'}>View Project</LinkTag>
+              <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
             </Flex>
           </Grid>
         )}
       </Box>
-      <Heading as="h3">{title}</Heading>
+      <Heading as="h3">{projectTitle}</Heading>
       <Flex flexDirection="row" gap="4">
-        {tags.map(tag => {
+        {projectTag.map(tag => {
           return (
             <Tag color="gray" key={crypto.randomUUID()} padding="0">
               {tag}
@@ -58,12 +60,14 @@ export function ProjectCard({ href, title, tags, github }: ProjectCardProps) {
           );
         })}
       </Flex>
-      <Show below="lg">
-        <Flex gap={4}>
-          <LinkTag href={`./${title}`}>View Project</LinkTag>
-          <LinkTag href={github}>View code</LinkTag>
-        </Flex>
-      </Show>
+      {projectShowButtons && (
+        <Show below="lg">
+          <Flex gap={4}>
+            <LinkTag href={website ? website : 'www.joeyquandt.nl'}>View Project</LinkTag>
+            <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
+          </Flex>
+        </Show>
+      )}
     </Stack>
   );
 }
