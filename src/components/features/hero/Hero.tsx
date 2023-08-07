@@ -3,6 +3,7 @@ import { HeroImage } from './HeroImage';
 import { HeroText } from './HeroText';
 import { PageContentpageContentHomeUnion } from '@/gql/graphql';
 import { PageHero } from '@/gql/graphql';
+import { FadeInWhenVisible } from '@/utils';
 
 type HeroProps = {
   content: PageHero | undefined;
@@ -16,7 +17,12 @@ export function Hero({ content }: HeroProps) {
       flexDirection={['column', 'column', 'row-reverse']}
     >
       <HeroImage href={content?.heroImage?.url} alt="me" />
-      <HeroText heading={content?.heroHeading ?? undefined} text={content?.heroText ?? undefined} />
+      <FadeInWhenVisible>
+        <HeroText
+          heading={content?.heroHeading ?? undefined}
+          text={content?.heroText ?? undefined}
+        />
+      </FadeInWhenVisible>
     </Flex>
   );
 }

@@ -8,18 +8,11 @@ import { CircleIcon, OvalIcon } from '../shared/backgroundIcons';
 
 import { useQuery, gql } from '@apollo/client';
 import { findObjectInArray } from '@/utils/findObjectInArray';
+import { LoadingPage, ErrorPage } from '.';
+import { GET_PAGE_CONTENT } from '@/gql';
 
 const GET_CONTENT = gql`
-  query MyQuery {
-    pageContent(where: { id: "clkwsyp6d93ip0auv8sc9obo8" }) {
-      pageContentHome {
-        ... on PageContact {
-          contactText
-          contactTitle
-        }
-      }
-    }
-  }
+  ${GET_PAGE_CONTENT}
 `;
 
 interface BaseLayoutProps {
@@ -28,8 +21,8 @@ interface BaseLayoutProps {
 
 export function BaseLayout({ children }: BaseLayoutProps) {
   const { loading, error, data } = useQuery(GET_CONTENT);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  if (loading) return <LoadingPage />;
+  if (error) return <ErrorPage />;
 
   return (
     <Flex flexDirection="column" position="relative">

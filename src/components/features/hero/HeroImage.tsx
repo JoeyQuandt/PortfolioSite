@@ -7,7 +7,7 @@ type HeroImageProps = {
 
 export function HeroImage({ href, alt }: HeroImageProps) {
   return (
-    <Box position="relative" zIndex={2}>
+    <Box position="relative">
       <Image
         src={href}
         alt={alt}

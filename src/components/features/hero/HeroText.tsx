@@ -20,7 +20,9 @@ export function HeroText({ heading, text }: HeroTextProps) {
         </LinkTag>
       </Heading>
       <Text marginBlock="6">{text}</Text>
-      <LinkTag href="https://chakra-ui.com/docs/styled-system/theme">Contact me</LinkTag>
+      <LinkTag maxWidth="95px" href="https://chakra-ui.com/docs/styled-system/theme">
+        Contact me
+      </LinkTag>
     </Stack>
   );
 }
