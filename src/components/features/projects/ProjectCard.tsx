@@ -5,6 +5,7 @@ import { Stack, Tag, Flex, Heading, Grid, Show, Box } from '@chakra-ui/react';
 import { LinkTag } from '@/components/shared/link';
 
 import { Project } from '@/gql/graphql';
+import { FadeInWhenVisible } from '@/utils';
 
 export function ProjectCard({
   projectImage,
@@ -50,24 +51,26 @@ export function ProjectCard({
           </Grid>
         )}
       </Box>
-      <Heading as="h3">{projectTitle}</Heading>
-      <Flex flexDirection="row" gap="4">
-        {projectTag.map(tag => {
-          return (
-            <Tag color="gray" key={crypto.randomUUID()} padding="0">
-              {tag}
-            </Tag>
-          );
-        })}
-      </Flex>
-      {projectShowButtons && (
-        <Show below="lg">
-          <Flex gap={4}>
-            <LinkTag href={website ? website : 'www.joeyquandt.nl'}>View Project</LinkTag>
-            <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
-          </Flex>
-        </Show>
-      )}
+      <FadeInWhenVisible>
+        <Heading as="h3">{projectTitle}</Heading>
+        <Flex flexDirection="row" gap="4">
+          {projectTag.map(tag => {
+            return (
+              <Tag color="gray" key={crypto.randomUUID()} padding="0">
+                {tag}
+              </Tag>
+            );
+          })}
+        </Flex>
+        {projectShowButtons && (
+          <Show below="lg">
+            <Flex gap={4}>
+              <LinkTag href={website ? website : 'www.joeyquandt.nl'}>View Project</LinkTag>
+              <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
+            </Flex>
+          </Show>
+        )}
+      </FadeInWhenVisible>
     </Stack>
   );
 }

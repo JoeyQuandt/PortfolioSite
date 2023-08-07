@@ -6,57 +6,16 @@ import { Hero } from '@/components/features/hero';
 import { Skills } from '@/components/features/skills';
 import { Projects } from '@/components/features/projects';
 
-import { useQuery, gql } from '@apollo/client';
 import { findObjectInArray } from '@/utils/findObjectInArray';
+import { useQuery, gql } from '@apollo/client';
+import { GET_PAGE_CONTENT } from '@/gql';
 
 const GET_CONTENT = gql`
-  query MyQuery {
-    pageContent(where: { id: "clkwsyp6d93ip0auv8sc9obo8" }) {
-      pageContentHome {
-        ... on PageHero {
-          heroHeading
-          heroText
-          heroImage {
-            fileName
-            url
-          }
-        }
-        ... on PageSkill {
-          skills {
-            ... on Skill {
-              pageSkillSubTitle
-              skillTitle
-            }
-          }
-        }
-        ... on PageContact {
-          contactText
-          contactTitle
-        }
-        ... on PageProject {
-          projects {
-            ... on Project {
-              projectShowButtons
-              projectImage {
-                url
-              }
-              projectTitle
-              projectTag
-              website
-              github
-            }
-          }
-        }
-      }
-    }
-  }
+  ${GET_PAGE_CONTENT}
 `;
 
 const Page: NextPage = () => {
-  const { loading, error, data } = useQuery(GET_CONTENT);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
-
+  const { data } = useQuery(GET_CONTENT);
   return (
     <>
       <NextSeo title="Homepage" description="Joey Quandt Front end developer portfolio site" />
