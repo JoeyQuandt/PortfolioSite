@@ -41,7 +41,6 @@ export function Header() {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: -25 },
       }}
-      marginBottom={10}
     >
       <Container bgColor="primary">
         <Flex

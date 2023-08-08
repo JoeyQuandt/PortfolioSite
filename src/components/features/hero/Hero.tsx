@@ -12,6 +12,7 @@ type HeroProps = {
 export function Hero({ content }: HeroProps) {
   return (
     <Flex
+      marginTop={40}
       justifyContent={['center', 'center', 'space-between']}
       alignItems="center"
       flexDirection={['column', 'column', 'row-reverse']}
