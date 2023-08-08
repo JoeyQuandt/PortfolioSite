@@ -33,6 +33,7 @@ export function Header() {
       left={0}
       right={0}
       zIndex={1}
+      paddingBottom={[4, 0]}
       paddingInline={[4, 8, 8, 44]}
       animate={hidden ? 'hidden' : 'visible'}
       transition={{ ease: '[0.1, 0.25, 0.3, 1]' }}

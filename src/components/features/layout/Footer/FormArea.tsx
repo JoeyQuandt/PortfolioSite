@@ -10,9 +10,19 @@ export function FormArea({ ...props }) {
   return (
     <FormControl position="relative" {...props}>
       <Stack spacing={8}>
-        <Input placeholder="name" _placeholder={placeholderStyles} />
-        <Input placeholder="email" _placeholder={placeholderStyles} />
-        <Textarea placeholder="message" _placeholder={placeholderStyles} />
+        <Input
+          placeholder="name"
+          id="name"
+          _placeholder={placeholderStyles}
+          autoComplete="given-name"
+        />
+        <Input placeholder="email" id="email" _placeholder={placeholderStyles} autoComplete="off" />
+        <Textarea
+          placeholder="message"
+          id="message"
+          _placeholder={placeholderStyles}
+          autoComplete="off"
+        />
       </Stack>
       <Button
         position="absolute"

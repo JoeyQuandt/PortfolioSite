@@ -14,7 +14,7 @@ export function ErrorPage({ statusCode }: ErrorProps) {
         color="white"
         textAlign="center"
       >
-        <Box width="20%">
+        <Box>
           <Lottie animationData={loadingAnimation404} loop={true} />
         </Box>
         <Heading>Oops... {statusCode ? `| ${statusCode} error` : ''} </Heading>

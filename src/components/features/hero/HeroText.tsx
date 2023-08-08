@@ -1,4 +1,4 @@
-import { Stack, Heading, Text } from '@chakra-ui/react';
+import { Stack, Heading, Text, Box } from '@chakra-ui/react';
 import { LinkTag } from '@/components/shared/link';
 
 type HeroTextProps = {
@@ -20,9 +20,11 @@ export function HeroText({ heading, text }: HeroTextProps) {
         </LinkTag>
       </Heading>
       <Text marginBlock="6">{text}</Text>
-      <LinkTag maxWidth="95px" href="https://chakra-ui.com/docs/styled-system/theme">
-        Contact me
-      </LinkTag>
+      <Box alignItems={['center', 'left', 'left']}>
+        <LinkTag maxWidth="95px" href="mailto: joeyquandt@outlook.com">
+          Contact me
+        </LinkTag>
+      </Box>
     </Stack>
   );
 }

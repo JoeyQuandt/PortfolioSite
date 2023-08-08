@@ -15,7 +15,7 @@ export function Projects({ content }: ProjectsProps) {
         <Heading as="h2" fontSize={[40, 50, 60]}>
           Projects
         </Heading>
-        <LinkTag href="./contact">Contact Me</LinkTag>
+        <LinkTag href="mailto: joeyquandt@outlook.com">Contact Me</LinkTag>
       </Flex>
       <Grid templateColumns={{ md: 'repeat(2,1fr)' }} gap={5}>
         {projectsData?.map(item => {
