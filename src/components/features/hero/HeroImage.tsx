@@ -1,4 +1,5 @@
-import { Box, Image } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+import { OptimizedImage } from '@/components/shared/image';
 
 type HeroImageProps = {
   href: string | undefined;
@@ -8,14 +9,16 @@ type HeroImageProps = {
 export function HeroImage({ href, alt }: HeroImageProps) {
   return (
     <Box position="relative">
-      <Image
-        src={href}
+      <OptimizedImage
+        src={href ? href : './images/placeholder.svg'}
         alt={alt}
         objectFit="cover"
-        width="100%"
-        height="100%"
         marginBlock={12}
         bgColor="tertiary"
+        priority={true}
+        quality={70}
+        width={383}
+        height={383}
       />
     </Box>
   );

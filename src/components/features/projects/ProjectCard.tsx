@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Stack, Tag, Flex, Heading, Grid, Show, Box } from '@chakra-ui/react';
 
 import { LinkTag } from '@/components/shared/link';
+import { OptimizedImage } from '@/components/shared/image';
 
 import { Project } from '@/gql/graphql';
 import { FadeInWhenVisible } from '@/utils';
@@ -25,32 +26,20 @@ export function ProjectCard({
     setIsHovering(false);
   };
 
+  console.log(isHovering);
+
   return (
     <Stack gap={4} marginBottom={10}>
-      <Box
-        backgroundImage={projectImage?.url}
-        width="100%"
-        backgroundSize="cover"
+      <OptimizedImage
+        src={projectImage?.url ? projectImage.url : './images/placeholder.svg'}
+        alt={projectTitle ? projectTitle : 'Project'}
+        objectFit="cover"
+        priority={true}
+        width={1000}
+        height={253}
+        quality={70}
         minHeight={['253px', '253px', '253px', '400px']}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        {isHovering && projectShowButtons && (
-          <Grid
-            placeItems="center"
-            height="100%"
-            width="100%"
-            background="black"
-            opacity="0.75"
-            filter="auto"
-          >
-            <Flex flexDirection="column" gap={10} textAlign="center">
-              <LinkTag href={website ? website : 'www.joeyquandt.nl'}>View Project</LinkTag>
-              <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
-            </Flex>
-          </Grid>
-        )}
-      </Box>
+      />
       <FadeInWhenVisible>
         <Heading as="h3">{projectTitle}</Heading>
         <Flex flexDirection="row" gap="4">
@@ -63,12 +52,10 @@ export function ProjectCard({
           })}
         </Flex>
         {projectShowButtons && (
-          <Show below="lg">
-            <Flex gap={4}>
-              <LinkTag href={website ? website : 'www.joeyquandt.nl'}>View Project</LinkTag>
-              <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
-            </Flex>
-          </Show>
+          <Flex gap={4} marginTop={10}>
+            <LinkTag href={website ? website : 'www.joeyquandt.nl'}>View Project</LinkTag>
+            <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
+          </Flex>
         )}
       </FadeInWhenVisible>
     </Stack>
