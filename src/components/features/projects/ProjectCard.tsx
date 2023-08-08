@@ -16,18 +16,6 @@ export function ProjectCard({
   website,
   projectShowButtons,
 }: Project) {
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-  };
-
-  console.log(isHovering);
-
   return (
     <Stack gap={4} marginBottom={10}>
       <OptimizedImage
