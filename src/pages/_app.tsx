@@ -11,7 +11,7 @@ import { theme } from '@/theme/theme';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clkwbft0i01os01t41l5yep4y/master',
+  uri: `${process.env.PAGE_URL}`,
   cache: new InMemoryCache(),
 });
 
