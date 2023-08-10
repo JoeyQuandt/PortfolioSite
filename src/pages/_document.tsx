@@ -1,3 +1,4 @@
+import { renderFavicons } from '@/utils';
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
@@ -5,6 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="shortcut icon" href="./favicon/favicon.ico" />
+        {renderFavicons()}
       </Head>
       <body>
         <Main />
