@@ -16,7 +16,7 @@ export function HeroText({ heading, text }: HeroTextProps) {
           textTransform={'capitalize'}
           textDecorationThickness={'4px'}
         >
-          Joey Quandt
+          I'm Joey Quandt
         </LinkTag>
       </Heading>
       <Text marginBlock="6">{text}</Text>
