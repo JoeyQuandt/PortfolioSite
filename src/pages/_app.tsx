@@ -11,7 +11,7 @@ import { theme } from '@/theme/theme';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: `${process.env.PAGE_URL}`,
+  uri: `${process.env.NEXT_PUBLIC_PAGE_URL}`,
   cache: new InMemoryCache(),
 });
 

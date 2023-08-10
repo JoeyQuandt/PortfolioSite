@@ -1,6 +1,6 @@
 export const GET_PAGE_CONTENT = `
 query MyQuery {
-  pageContent(where: {id: "clkwsyp6d93ip0auv8sc9obo8"}) {
+  pageContent(where: {id: ${process.env.NEXT_PUBLIC_PAGE_ID}}) {
     pageContentHome {
       ... on PageHero {
         heroHeading

@@ -6,7 +6,7 @@ module.exports = {
     domains: ['media.graphassets.com'],
   },
   env: {
-    PAGE_URL: process.env.PAGE_URL,
-    PAGE_ID: process.env.PAGE_ID,
+    NEXT_PUBLIC_PAGE_URL: process.env.PAGE_URL,
+    NEXT_PUBLIC_PAGE_ID: process.env.PAGE_ID,
   },
 };
