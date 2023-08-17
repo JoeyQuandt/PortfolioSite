@@ -86,3 +86,5 @@ export const MailTemplate = ({ response, name, email, message }: MailTemplatePro
     </Html>
   );
 };
+
+export default MailTemplate;
