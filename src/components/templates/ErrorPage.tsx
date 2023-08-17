@@ -5,8 +5,6 @@ import Lottie from 'lottie-react';
 import loadingAnimation404 from '../../../public/animations/404.json';
 
 export function ErrorPage({ statusCode }: ErrorProps) {
-  console.log(process.env.NEXT_PUBLIC_PAGE_URL);
-  console.log(process.env.NEXT_PUBLIC_EMAIL_API);
   return (
     <Grid placeItems="center" height="100vh">
       <Flex
