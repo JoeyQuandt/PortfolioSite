@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { MailTemplate } from '../email/MailTemplate';
 import { Resend } from 'resend';
+import { MailTemplate } from '../email/MailTemplate';
 
 const resend = new Resend(process.env.NEXT_PUBLIC_EMAIL_API);
 
