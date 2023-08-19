@@ -30,9 +30,9 @@ export function Footer({ content }: FooterProps) {
               <Heading as="h2" fontSize={[30, 50, 60]}>
                 {content?.contactTitle}
               </Heading>
-              <Text>{content?.contactText}</Text>
+              <Text marginBlock={4}>{content?.contactText}</Text>
             </Stack>
-            <FormArea marginBottom={20} />
+            <FormArea width="100%" marginBottom={20} />
           </Flex>
         </FadeInWhenVisible>
         <Divider />
