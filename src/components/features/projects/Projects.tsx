@@ -3,6 +3,7 @@ import { ProjectCard } from './ProjectCard';
 import { PageProject } from '@/gql/graphql';
 import { useState } from 'react';
 import { CustomSelect } from '@/components/shared/selectComponent';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 type ProjectsProps = {
   content: PageProject | undefined;
@@ -10,6 +11,7 @@ type ProjectsProps = {
 
 export function Projects({ content }: ProjectsProps) {
   const [selectedOption, setSelectOption] = useState('All');
+  const [animationParent] = useAutoAnimate<HTMLDivElement>();
 
   const projectsData = content?.projects;
 
@@ -35,13 +37,14 @@ export function Projects({ content }: ProjectsProps) {
         <Heading as="h2" fontSize={[40, 50, 60]}>
           Projects
         </Heading>
+        <CustomSelect
+          defaultValue="All"
+          caterogyData={caterogyData}
+          handleChange={e => setSelectOption(e.value)}
+          maxWidth="400px"
+        />
       </Flex>
-      <CustomSelect
-        defaultValue="All"
-        caterogyData={caterogyData}
-        handleChange={e => setSelectOption(e.value)}
-      />
-      <Grid templateColumns={{ md: 'repeat(2,1fr)' }} gap={5}>
+      <Grid templateColumns={{ md: 'repeat(2,1fr)' }} gap={5} ref={animationParent}>
         {selectedOption === 'All'
           ? projectsData?.map(item => {
               return (

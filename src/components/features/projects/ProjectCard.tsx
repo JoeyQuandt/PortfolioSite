@@ -1,6 +1,5 @@
 import { Stack, Tag, Flex, Heading } from '@chakra-ui/react';
 import { LinkTag } from '@/components/shared/link';
-import { FadeInWhenVisible } from '@/utils';
 import { ProjectCardBackground } from './ProjectCardBackground';
 import { Project } from '@/gql/graphql';
 
@@ -20,24 +19,22 @@ export function ProjectCard({
         twoImages={showTwoImages ? showTwoImages : false}
         projectTitle={projectTitle}
       />
-      <FadeInWhenVisible>
-        <Heading as="h3">{projectTitle}</Heading>
-        <Flex flexDirection="row" gap="4">
-          {projectTag.map((tag, index) => {
-            return (
-              <Tag color="gray" key={index} padding="0">
-                {tag}
-              </Tag>
-            );
-          })}
+      <Heading as="h3">{projectTitle}</Heading>
+      <Flex flexDirection="row" gap="4">
+        {projectTag.map((tag, index) => {
+          return (
+            <Tag color="gray" key={index} padding="0">
+              {tag}
+            </Tag>
+          );
+        })}
+      </Flex>
+      {projectShowButtons && (
+        <Flex gap={4} marginTop={10}>
+          <LinkTag href={website ? website : 'https://www.joeyquandt.nl'}>View Project</LinkTag>
+          <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
         </Flex>
-        {projectShowButtons && (
-          <Flex gap={4} marginTop={10}>
-            <LinkTag href={website ? website : 'https://www.joeyquandt.nl'}>View Project</LinkTag>
-            <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
-          </Flex>
-        )}
-      </FadeInWhenVisible>
+      )}
     </Stack>
   );
 }

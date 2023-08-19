@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, BoxProps } from '@chakra-ui/react';
 import Select, { StylesConfig } from 'react-select';
 import { getUniqueListBy } from '@/utils';
 import { Maybe } from '@/gql/graphql';
@@ -9,7 +9,7 @@ type CustomSelectProps = {
     | undefined;
   handleChange: (e: any) => void;
   defaultValue: string;
-};
+} & BoxProps;
 
 export const CustomSelect = ({
   caterogyData,
