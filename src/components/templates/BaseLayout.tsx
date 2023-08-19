@@ -31,7 +31,7 @@ export function BaseLayout({ children }: BaseLayoutProps) {
         <Container>{children}</Container>
       </Box>
       <Footer content={findObjectInArray(data.pageContent.pageContentHome, 'PageContact')} />
-      <OvalIcon position="absolute" top="0" left="0" />
+      <OvalIcon position="absolute" top="0" left="0" zIndex="6" />
       <OvalIcon position="absolute" bottom="2.5%" left="0" />
     </Flex>
   );
