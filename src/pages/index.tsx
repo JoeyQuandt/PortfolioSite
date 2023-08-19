@@ -8,7 +8,7 @@ import { Projects } from '@/components/features/projects';
 
 import { findObjectInArray } from '@/utils/findObjectInArray';
 import { useQuery, gql } from '@apollo/client';
-import { GET_PAGE_CONTENT } from '@/gql';
+import { GET_PAGE_CONTENT } from '@/gql/queries';
 
 const GET_CONTENT = gql`
   ${GET_PAGE_CONTENT}
