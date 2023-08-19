@@ -52,6 +52,7 @@ export const CustomSelect = ({
         options={selectOptions}
         styles={selectStyles}
         onChange={handleChange}
+        isSearchable={false}
       />
     </Box>
   );
