@@ -44,10 +44,11 @@ query MyQuery {
                 }
               }
             }
+            caterogy
+            showTwoImages
           }
         }
       }
     }
   }
-}
-`;
+}`;

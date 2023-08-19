@@ -9,7 +9,7 @@ import { CircleIcon, OvalIcon } from '../shared/backgroundIcons';
 import { useQuery, gql } from '@apollo/client';
 import { findObjectInArray } from '@/utils/findObjectInArray';
 import { LoadingPage, ErrorPage } from '.';
-import { GET_PAGE_CONTENT } from '@/gql';
+import { GET_PAGE_CONTENT } from '@/gql/queries';
 
 const GET_CONTENT = gql`
   ${GET_PAGE_CONTENT}
@@ -31,8 +31,7 @@ export function BaseLayout({ children }: BaseLayoutProps) {
         <Container>{children}</Container>
       </Box>
       <Footer content={findObjectInArray(data.pageContent.pageContentHome, 'PageContact')} />
-      <OvalIcon position="absolute" top="0" left="0" />
-      <CircleIcon position="absolute" top="50%" right="0" />
+      <OvalIcon position="absolute" top="0" left="0" zIndex="6" />
       <OvalIcon position="absolute" bottom="2.5%" left="0" />
     </Flex>
   );
