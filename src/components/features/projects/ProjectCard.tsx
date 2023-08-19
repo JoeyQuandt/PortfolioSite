@@ -1,12 +1,8 @@
-import { useState } from 'react';
-
-import { Stack, Tag, Flex, Heading, Grid, Show, Box } from '@chakra-ui/react';
-
+import { Stack, Tag, Flex, Heading } from '@chakra-ui/react';
 import { LinkTag } from '@/components/shared/link';
-import { OptimizedImage } from '@/components/shared/image';
-
-import { Project } from '@/gql/graphql';
 import { FadeInWhenVisible } from '@/utils';
+import { ProjectCardBackground } from './ProjectCardBackground';
+import { Project } from '@/gql/graphql';
 
 export function ProjectCard({
   projectImage,
@@ -15,25 +11,21 @@ export function ProjectCard({
   github,
   website,
   projectShowButtons,
+  showTwoImages,
 }: Project) {
   return (
     <Stack gap={4} marginBottom={10}>
-      <OptimizedImage
+      <ProjectCardBackground
         src={projectImage?.url ? projectImage.url : './images/placeholder.svg'}
-        alt={projectTitle ? projectTitle : 'Project'}
-        objectFit="cover"
-        priority={true}
-        width={1000}
-        height={253}
-        quality={70}
-        minHeight={['253px', '253px', '253px', '400px']}
+        twoImages={showTwoImages ? showTwoImages : false}
+        projectTitle={projectTitle}
       />
       <FadeInWhenVisible>
         <Heading as="h3">{projectTitle}</Heading>
         <Flex flexDirection="row" gap="4">
-          {projectTag.map(tag => {
+          {projectTag.map((tag, index) => {
             return (
-              <Tag color="gray" key={crypto.randomUUID()} padding="0">
+              <Tag color="gray" key={index} padding="0">
                 {tag}
               </Tag>
             );
@@ -41,7 +33,7 @@ export function ProjectCard({
         </Flex>
         {projectShowButtons && (
           <Flex gap={4} marginTop={10}>
-            <LinkTag href={website ? website : 'www.joeyquandt.nl'}>View Project</LinkTag>
+            <LinkTag href={website ? website : 'https://www.joeyquandt.nl'}>View Project</LinkTag>
             <LinkTag href={github ? github : 'https://github.com/JoeyQuandt'}>View code</LinkTag>
           </Flex>
         )}

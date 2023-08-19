@@ -9,7 +9,7 @@ import { CircleIcon, OvalIcon } from '../shared/backgroundIcons';
 import { useQuery, gql } from '@apollo/client';
 import { findObjectInArray } from '@/utils/findObjectInArray';
 import { LoadingPage, ErrorPage } from '.';
-import { GET_PAGE_CONTENT } from '@/gql';
+import { GET_PAGE_CONTENT } from '@/gql/queries';
 
 const GET_CONTENT = gql`
   ${GET_PAGE_CONTENT}

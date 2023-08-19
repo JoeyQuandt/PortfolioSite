@@ -32,7 +32,7 @@ export function Header() {
       top={0}
       left={0}
       right={0}
-      zIndex={1}
+      zIndex={5}
       paddingBottom={[4, 0]}
       paddingInline={[4, 8, 8, 44]}
       animate={hidden ? 'hidden' : 'visible'}
