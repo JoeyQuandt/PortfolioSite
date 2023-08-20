@@ -22,7 +22,7 @@ const MyApp = ({ Component: Page, pageProps }: AppProps) => {
   return (
     <>
       <ApolloProvider client={client}>
-        <DefaultSeo titleTemplate={`%s | Portfolio Site`} />
+        <DefaultSeo titleTemplate={`%s - Front-end Developer`} />
         <ChakraProvider theme={theme} resetCSS>
           <BaseLayout>
             <Page {...pageProps} />

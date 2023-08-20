@@ -18,7 +18,7 @@ const Page: NextPage = () => {
   const { data } = useQuery(GET_CONTENT);
   return (
     <>
-      <NextSeo title="Homepage" description="Joey Quandt Front end developer portfolio site" />
+      <NextSeo title="Joey Quandt" description="Joey Quandt Front end developer portfolio site" />
       <Stack spacing="4">
         <Hero content={findObjectInArray(data.pageContent.pageContentHome, 'PageHero')} />
         <Divider />
