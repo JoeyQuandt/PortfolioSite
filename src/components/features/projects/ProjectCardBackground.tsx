@@ -3,6 +3,7 @@ import { OvalIcon, CircleIcon } from '@/components/shared/backgroundIcons';
 import { OptimizedImage } from '@/components/shared/image';
 import { Image } from '@chakra-ui/react';
 import { Maybe } from 'graphql/jsutils/Maybe';
+import { Hide, Show } from '@chakra-ui/react';
 
 type ProjectBackgroundProps = {
   src: string;
@@ -22,7 +23,7 @@ export function ProjectCardBackground({ src, projectTitle, twoImages }: ProjectB
       <OvalIcon position="absolute" bottom="0" left="0" width="100px" />
       {twoImages ? (
         <>
-          <Box maxWidth={[200, 200, 200, 308]} maxHeight={[200, 200, 200, 350]}>
+          <Hide below="lg">
             <OptimizedImage
               src={src}
               alt={projectTitle ? projectTitle : 'Project'}
@@ -35,10 +36,8 @@ export function ProjectCardBackground({ src, projectTitle, twoImages }: ProjectB
               zIndex={4}
               margin="auto"
               width={308}
-              height={350}
+              height={300}
             />
-          </Box>
-          <Box maxWidth={[200, 150, 150, 308]} maxHeight={[200, 150, 150, 400]}>
             <OptimizedImage
               src={src}
               alt={projectTitle ? projectTitle : 'Project'}
@@ -52,22 +51,70 @@ export function ProjectCardBackground({ src, projectTitle, twoImages }: ProjectB
               width={308}
               height={400}
             />
-          </Box>
+          </Hide>
+          <Hide above="lg">
+            <OptimizedImage
+              src={src}
+              alt={projectTitle ? projectTitle : 'Project'}
+              objectFit="cover"
+              objectPosition={'top'}
+              position="absolute"
+              boxShadow="sm"
+              bottom="0"
+              left="10"
+              zIndex={4}
+              margin="auto"
+              width={200}
+              height={200}
+            />
+            <OptimizedImage
+              src={src}
+              alt={projectTitle ? projectTitle : 'Project'}
+              objectFit="cover"
+              objectPosition={'bottom'}
+              position="absolute"
+              top="0"
+              right="10"
+              margin="auto"
+              zIndex={3}
+              width={150}
+              height={200}
+            />
+          </Hide>
         </>
       ) : (
-        <OptimizedImage
-          src={src}
-          alt={projectTitle ? projectTitle : 'Project'}
-          objectFit="cover"
-          objectPosition={'top'}
-          position="absolute"
-          bottom="0"
-          left="0"
-          right="0"
-          margin="auto"
-          width={349}
-          height={450}
-        />
+        <>
+          <Hide below="lg">
+            <OptimizedImage
+              src={src}
+              alt={projectTitle ? projectTitle : 'Project'}
+              objectFit="cover"
+              objectPosition={'top'}
+              position="absolute"
+              bottom="0"
+              left="0"
+              right="0"
+              margin="auto"
+              width={349}
+              height={450}
+            />
+          </Hide>
+          <Hide above="lg">
+            <OptimizedImage
+              src={src}
+              alt={projectTitle ? projectTitle : 'Project'}
+              objectFit="cover"
+              objectPosition={'top'}
+              position="absolute"
+              bottom="0"
+              left="0"
+              right="0"
+              margin="auto"
+              width={250}
+              height={210}
+            />
+          </Hide>
+        </>
       )}
     </Box>
   );

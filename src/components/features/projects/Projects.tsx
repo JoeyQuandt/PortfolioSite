@@ -33,7 +33,12 @@ export function Projects({ content }: ProjectsProps) {
 
   return (
     <Stack color="white" marginBlock={{ lg: 24 }}>
-      <Flex justifyContent="space-between" marginBottom={10} alignItems="center">
+      <Flex
+        flexDirection={['column', 'column', 'row']}
+        justifyContent="space-between"
+        marginBottom={10}
+        alignItems="center"
+      >
         <Heading as="h2" fontSize={[40, 50, 60]}>
           Projects
         </Heading>
@@ -44,7 +49,12 @@ export function Projects({ content }: ProjectsProps) {
           maxWidth="400px"
         />
       </Flex>
-      <Grid templateColumns={{ md: 'repeat(2,1fr)' }} gap={5} ref={animationParent}>
+      <Grid
+        templateColumns={{ md: 'repeat(2,1fr)' }}
+        gap={5}
+        ref={animationParent}
+        minHeight="800px"
+      >
         {selectedOption === 'All'
           ? projectsData?.map(item => {
               return (
