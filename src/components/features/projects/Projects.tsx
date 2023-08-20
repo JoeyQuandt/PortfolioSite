@@ -22,11 +22,11 @@ export function Projects({ content }: ProjectsProps) {
     })) ?? [];
 
   const caterogyData = [
-    ...filterdCaterogy,
     {
       value: 'All',
       label: 'All',
     },
+    ...filterdCaterogy,
   ];
 
   const filteredData = projectsData?.filter(item => item.caterogy === selectedOption);
