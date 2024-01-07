@@ -8,7 +8,8 @@
     "sitemap": "next-sitemap --next-sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "graphql-codegen --config codegen.ts",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
     "@apollo/client": "^3.7.17",
@@ -16,6 +17,9 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@formkit/auto-animate": "^0.7.0",
+    "@prismicio/client": "^7.3.1",
+    "@prismicio/next": "^1.5.0",
+    "@prismicio/react": "^2.7.3",
     "@react-email/components": "^0.0.7",
     "@types/node": "20.4.6",
     "@types/react": "18.2.18",
@@ -41,6 +45,8 @@
     "@graphql-codegen/client-preset": "4.1.0",
     "@graphql-codegen/introspection": "4.0.0",
     "@graphql-typed-document-node/core": "^3.2.0",
+    "@slicemachine/adapter-next": "^0.3.31",
+    "slice-machine-ui": "^1.22.1",
     "typescript": "^5.1.6"
   }
 }

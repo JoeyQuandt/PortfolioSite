@@ -2,41 +2,34 @@ import { Flex, Icon, Heading } from '@chakra-ui/react';
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from 'react-icons/ai';
 
 import Link from 'next/link';
+import { PrismicNextLink } from '@prismicio/next';
+import type { LayoutDocumentData } from '../../../../prismicio-types';
 
-const items = [
-  {
-    href: 'https://github.com/JoeyQuandt',
-    icon: AiFillGithub,
-  },
-  {
-    href: 'https://www.linkedin.com/in/joey-quandt/',
-    icon: AiFillLinkedin,
-  },
-  {
-    href: 'mailto: joeyquandt@outlook.com',
-    icon: AiFillMail,
-  },
-];
-
-export function SocialIcons({ ...props }) {
+export function SocialIcons({ data, ...props }: { data: LayoutDocumentData }) {
   return (
     <Flex gap={2.5} {...props}>
-      {items.map(item => {
+      {data.social_icons.map(item => {
         return (
-          <Link href={item.href} key={crypto.randomUUID()}>
+          <PrismicNextLink field={item.link} key={crypto.randomUUID()}>
             <Icon
-              as={item.icon}
+              as={
+                item.social_icon_type === 'github'
+                  ? AiFillGithub
+                  : item.social_icon_type === 'linkedin'
+                    ? AiFillLinkedin
+                    : AiFillMail
+              }
               boxSize={10}
               _hover={{ color: 'secondary', transition: 'all 0.3s ease' }}
             />
-          </Link>
+          </PrismicNextLink>
         );
       })}
     </Flex>
   );
 }
 
-export function Logo({ ...props }) {
+export function Logo({ data, ...props }: { data: LayoutDocumentData }) {
   return (
     <Link href="/" legacyBehavior {...props}>
       <Flex as="a" mr={2} cursor="pointer" marginTop={5}>
@@ -47,7 +40,7 @@ export function Logo({ ...props }) {
           cursor="pointer"
           _hover={{ color: 'secondary', transition: 'all 0.3s ease' }}
         >
-          joeyquandt
+          {data.logo_title}
         </Heading>
       </Flex>
     </Link>

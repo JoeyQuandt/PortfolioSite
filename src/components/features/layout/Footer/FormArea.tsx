@@ -84,7 +84,7 @@ export function FormArea({ ...props }) {
           <FormControl>
             <Stack spacing={8}>
               <Input
-                placeholder="name"
+                placeholder="Name"
                 id="name"
                 _placeholder={placeholderStyles}
                 autoComplete="given-name"
@@ -92,7 +92,7 @@ export function FormArea({ ...props }) {
                 value={formik.values.name}
               />
               <Input
-                placeholder="email"
+                placeholder="Email"
                 id="email"
                 _placeholder={placeholderStyles}
                 autoComplete="off"
@@ -100,7 +100,7 @@ export function FormArea({ ...props }) {
                 value={formik.values.email}
               />
               <Textarea
-                placeholder="message"
+                placeholder="Message"
                 id="message"
                 _placeholder={placeholderStyles}
                 autoComplete="off"
@@ -134,7 +134,7 @@ export function FormArea({ ...props }) {
                 transition: 'transform 0.3s',
               }}
             >
-              send message
+              Send Message
             </Button>
           </FormControl>
         </form>
