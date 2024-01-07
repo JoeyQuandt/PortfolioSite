@@ -28,7 +28,6 @@ export async function getStaticProps({ params, previewData }: GetStaticPropsCont
   const client = createClient({ previewData });
 
   const page = await client.getByUID('page', params!.uid);
-  console.log(page)
   return {
     props: { page },
   };
@@ -37,12 +36,13 @@ export async function getStaticProps({ params, previewData }: GetStaticPropsCont
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType('page');
-  console.log(pages[0])
+  const pagesPaths = await client.getAllByType('page');
+
+  let pages = pagesPaths.map(page => {
+    return asLink(page);
+  });
   return {
-    paths: pages.map(page => {
-      return asLink(page);
-    }),
+    paths: [...pages],
     fallback: false,
   };
 }
