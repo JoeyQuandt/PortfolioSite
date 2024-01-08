@@ -16,11 +16,6 @@
 					}
 				]
 			},
-			"eyebrowHeadline": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Hero"
-			},
 			"description": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [

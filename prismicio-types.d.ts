@@ -150,7 +150,7 @@ export type LayoutDocument<Lang extends string = string> = prismic.PrismicDocume
   Lang
 >;
 
-type PageDocumentDataSlicesSlice = HeroSlice;
+type PageDocumentDataSlicesSlice = SkillsSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -220,16 +220,6 @@ export type AllDocumentTypes = LayoutDocument | PageDocument;
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
-  /**
-   * eyebrowHeadline field in *Hero → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Eyebrow
-   * - **API ID Path**: hero.primary.eyebrowHeadline
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  eyebrowHeadline: prismic.KeyTextField;
-
   /**
    * title field in *Hero → Primary*
    *
@@ -386,6 +376,48 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceImageRight;
  */
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>;
 
+/**
+ * Primary content in *Skills → Items*
+ */
+export interface SkillsSliceDefaultItem {
+  /**
+   * Skill field in *Skills → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: skills.items[].skill
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  skill: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Skills Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  Simplify<SkillsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Skills*
+ */
+type SkillsSliceVariation = SkillsSliceDefault;
+
+/**
+ * Skills Shared Slice
+ *
+ * - **API ID**: `skills`
+ * - **Description**: Skills
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSlice = prismic.SharedSlice<'skills', SkillsSliceVariation>;
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -410,6 +442,10 @@ declare module '@prismicio/client' {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceImageRight,
+      SkillsSlice,
+      SkillsSliceDefaultItem,
+      SkillsSliceVariation,
+      SkillsSliceDefault,
     };
   }
 }

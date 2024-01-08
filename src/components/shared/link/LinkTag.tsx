@@ -1,7 +1,7 @@
 import { Link, LinkProps } from '@chakra-ui/react';
 
 type ClickableLinkProps = {
-  href: string;
+  href?: string;
   children: React.ReactNode;
 } & LinkProps;
 
