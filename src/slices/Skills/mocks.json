@@ -1,28 +1,28 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"skill",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Amet nulla non esse sit ex velit do aliqua pariatur in dolor nostrud minim aute. Eu dolor ex et sint tempor sit."
-									}
-								}
-							]
-						}
-					]
-				]
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {},
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "skill",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Amet nulla non esse sit ex velit do aliqua pariatur in dolor nostrud minim aute. Eu dolor ex et sint tempor sit."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
 ]
