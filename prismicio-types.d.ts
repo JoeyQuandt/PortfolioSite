@@ -150,7 +150,7 @@ export type LayoutDocument<Lang extends string = string> = prismic.PrismicDocume
   Lang
 >;
 
-type PageDocumentDataSlicesSlice = SkillsSlice | HeroSlice;
+type PageDocumentDataSlicesSlice = DividerSlice | SkillsSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -215,6 +215,49 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 >;
 
 export type AllDocumentTypes = LayoutDocument | PageDocument;
+
+/**
+ * Primary content in *Divider → Primary*
+ */
+export interface DividerSliceDefaultPrimary {
+  /**
+   * Show Divider field in *Divider → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: divider.primary.show_divider
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_divider: prismic.BooleanField;
+}
+
+/**
+ * Default variation for Divider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DividerSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<DividerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Divider*
+ */
+type DividerSliceVariation = DividerSliceDefault;
+
+/**
+ * Divider Shared Slice
+ *
+ * - **API ID**: `divider`
+ * - **Description**: Divider
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DividerSlice = prismic.SharedSlice<'divider', DividerSliceVariation>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -436,6 +479,10 @@ declare module '@prismicio/client' {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      DividerSlice,
+      DividerSliceDefaultPrimary,
+      DividerSliceVariation,
+      DividerSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceImageRightPrimary,

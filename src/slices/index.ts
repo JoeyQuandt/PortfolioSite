@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 
 export const components = {
+  divider: dynamic(() => import('./Bar')),
   hero: dynamic(() => import('./Hero')),
   skills: dynamic(() => import('./Skills')),
 };

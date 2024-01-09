@@ -1,0 +1,28 @@
+{
+  "id": "divider",
+  "type": "SharedSlice",
+  "name": "Divider",
+  "description": "Divider",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "show_divider": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Divider",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
