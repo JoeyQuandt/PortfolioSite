@@ -4,7 +4,6 @@ import { ProjectCardBackground } from './ProjectCardBackground';
 import { PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import { Content, isFilled } from '@prismicio/client';
-import { SliceComponentProps } from '@prismicio/react';
 
 export type ProjectProps = Content.ProjectsSliceDefaultItem;
 

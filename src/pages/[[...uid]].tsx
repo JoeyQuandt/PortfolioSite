@@ -1,6 +1,6 @@
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import Head from 'next/head';
-import { isFilled, asLink } from '@prismicio/client';
+import { NextSeo } from 'next-seo';
+import { asLink } from '@prismicio/client';
 import { SliceZone } from '@prismicio/react';
 
 import { components } from '@/slices';
@@ -11,12 +11,32 @@ type Params = { uid: string };
 export default function Page({ page }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <Head>
-        <title>{page.data.meta_title}</title>
-        {isFilled.keyText(page.data.meta_description) ? (
-          <meta name="description" content={page.data.meta_description} />
-        ) : null}
-      </Head>
+      <NextSeo
+        title="Portfolio Joey Quandt"
+        description="Based in the Netherlands, I'm a front-end developer passionate about building accessible web apps that users love."
+        canonical="https://joeyquandt.nl/"
+        openGraph={{
+          url: 'https://joeyquandt.nl/',
+          title: 'Portfolio Joey Quandt',
+          description:
+            "Based in the Netherlands, I'm a front-end developer passionate about building accessible web apps that users love.",
+          images: [
+            {
+              url: 'https://images.prismic.io/joeyquandt/659edbcc7a5e8b1120d56ba1_Joey-Quandt-Front-end-Developer.png',
+              width: 800,
+              height: 600,
+              alt: 'Og Image Alt',
+              type: 'image/jpeg',
+            },
+          ],
+          siteName: 'Portfolio Joey Quandt',
+        }}
+        twitter={{
+          handle: '@handle',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
       <SliceZone slices={page.data.slices} components={components} />
     </>
   );

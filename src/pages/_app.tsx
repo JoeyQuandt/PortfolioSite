@@ -16,7 +16,34 @@ const MyApp = ({ Component: Page, pageProps }: AppProps) => {
   }
   return (
     <>
-      <DefaultSeo titleTemplate={`%s - Front-end Developer`} />
+      <DefaultSeo
+        titleTemplate={`%s | Front-end Developer`}
+        themeColor="gray"
+        canonical="https://www.joeyquandt.nl/"
+        additionalLinkTags={[
+          {
+            rel: 'shortcut icon',
+            href: '/favicon.ico',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            href: '/favicon/favicon-16x16.png',
+            sizes: '16x16',
+          },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            href: '/favicon/favicon-32x32.png',
+            sizes: '32x32',
+          },
+          {
+            rel: 'apple-touch-icon',
+            href: '/favicon/apple-touch-icon.png',
+            sizes: '76x76',
+          },
+        ]}
+      />
       <ChakraProvider theme={theme} resetCSS>
         <BaseLayout>
           <Page {...pageProps} />
