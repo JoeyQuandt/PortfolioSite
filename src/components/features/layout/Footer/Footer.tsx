@@ -1,14 +1,16 @@
-import { Box, Flex, Heading, Text, Stack, Divider, Container } from '@chakra-ui/react';
+import { Box, Flex, Heading, Stack, Divider, Container } from '@chakra-ui/react';
+import type { LayoutDocumentData } from '../../../../../prismicio-types';
+import { PrismicRichText } from '@prismicio/react';
+
 import { FormArea } from './FormArea';
 import { SocialIcons, Logo } from '@/components/shared/socialIcons';
-import { PageContact } from '@/gql/graphql';
 import { FadeInWhenVisible } from '@/utils';
 
 type FooterProps = {
-  content: PageContact | undefined;
+  data: LayoutDocumentData;
 };
 
-export function Footer({ content }: FooterProps) {
+export function Footer({ data }: FooterProps) {
   return (
     <Box bgColor="tertiary" paddingInline={[4, 8, 8, 44]}>
       <Container
@@ -28,9 +30,11 @@ export function Footer({ content }: FooterProps) {
           >
             <Stack spacing={4} maxWidth={{ lg: '445px' }} marginBottom={18}>
               <Heading as="h2" fontSize={[30, 50, 60]}>
-                {content?.contactTitle}
+                {data.contact_title}
               </Heading>
-              <Text marginBlock={4}>{content?.contactText}</Text>
+              <Box marginBlock={4}>
+                <PrismicRichText field={data.contact_text} />
+              </Box>
             </Stack>
             <FormArea width="100%" marginBottom={20} />
           </Flex>
@@ -42,8 +46,8 @@ export function Footer({ content }: FooterProps) {
           alignItems="center"
           marginBottom={14}
         >
-          <Logo />
-          <SocialIcons />
+          <Logo data={data} />
+          <SocialIcons data={data} />
         </Flex>
       </Container>
     </Box>

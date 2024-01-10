@@ -1,7 +1,9 @@
 import { Link, LinkProps } from '@chakra-ui/react';
+import { EmptyLinkField } from '@prismicio/client';
+import { LinkField } from '@prismicio/client';
 
 type ClickableLinkProps = {
-  href: string;
+  href?: string;
   children: React.ReactNode;
 } & LinkProps;
 

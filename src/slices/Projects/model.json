@@ -1,0 +1,99 @@
+{
+  "id": "projects",
+  "type": "SharedSlice",
+  "name": "Projects",
+  "description": "Projects",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "project_image": {
+          "type": "Image",
+          "config": {
+            "label": "project Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "project_title": {
+          "type": "Text",
+          "config": {
+            "label": "project title",
+            "placeholder": ""
+          }
+        },
+        "project_website": {
+          "type": "Link",
+          "config": {
+            "label": "project website",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "project_github": {
+          "type": "Link",
+          "config": {
+            "label": "project github",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "project_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "project description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "project_show_two_images": {
+          "type": "Boolean",
+          "config": {
+            "label": "project show two images",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "project_tag": {
+          "type": "Select",
+          "config": {
+            "label": "project type",
+            "placeholder": "",
+            "options": [
+              "App",
+              "Website",
+              "WorkInProgress"
+            ]
+          }
+        },
+        "project_show_buttons": {
+          "type": "Boolean",
+          "config": {
+            "label": "project show buttons",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        }
+      }
+    }
+  ]
+}

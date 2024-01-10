@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import { OvalIcon, CircleIcon } from '@/components/shared/backgroundIcons';
 import { OptimizedImage } from '@/components/shared/image';
-import { Image } from '@chakra-ui/react';
+import { ImageField } from '@prismicio/client';
 import { Maybe } from 'graphql/jsutils/Maybe';
 import { Hide, Show } from '@chakra-ui/react';
 

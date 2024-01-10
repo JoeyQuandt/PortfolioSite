@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
+import type { LayoutDocumentData } from '../../../../prismicio-types';
 
 import { SocialIcons, Logo } from '@/components/shared/socialIcons';
 import { Box, Container, Flex } from '@chakra-ui/react';
 import { useScroll, motion, useMotionValueEvent } from 'framer-motion';
 
-export function Header() {
+interface HeaderProps {
+  data: LayoutDocumentData;
+}
+
+export function Header({ data }: HeaderProps) {
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
 
@@ -50,8 +55,8 @@ export function Header() {
           flexDirection={['column', 'row']}
           justifyContent={['center', 'space-between', 'space-between']}
         >
-          <Logo />
-          <SocialIcons />
+          <Logo data={data} />
+          <SocialIcons data={data} />
         </Flex>
       </Container>
     </Box>
