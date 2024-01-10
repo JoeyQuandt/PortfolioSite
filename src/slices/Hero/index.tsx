@@ -1,7 +1,6 @@
 import { type Content, isFilled } from '@prismicio/client';
-import { PrismicNextImage } from '@prismicio/next';
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { SliceComponentProps, PrismicRichText } from '@prismicio/react';
-
 import { Stack, Heading, Text, Box, Flex } from '@chakra-ui/react';
 import { LinkTag } from '@/components/shared/link';
 import { FadeInWhenVisible } from '@/utils';
@@ -44,8 +43,15 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             />
           )}
           <Box alignItems={['center', 'left', 'left']}>
-            <LinkTag href={slice.primary.callToActionLink.url} maxWidth="95px">
-              {slice.primary.callToActionLabel || 'Learn more…'}
+            <LinkTag maxWidth="95px">
+              {isFilled.link(slice.primary.callToActionLink) && (
+                <PrismicNextLink
+                  className="es-call-to-action__link"
+                  field={slice.primary.callToActionLink}
+                >
+                  {slice.primary.callToActionLabel || 'Learn more…'}
+                </PrismicNextLink>
+              )}
             </LinkTag>
           </Box>
         </Stack>
