@@ -5,6 +5,7 @@ import { DefaultSeo } from 'next-seo';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import { PrismicPreview } from '@prismicio/next';
 import { repositoryName } from '@/prismicio';
+import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
 
 import { BaseLayout } from '@/components/templates';
@@ -47,6 +48,7 @@ const MyApp = ({ Component: Page, pageProps }: AppProps) => {
       <ChakraProvider theme={theme} resetCSS>
         <BaseLayout>
           <Page {...pageProps} />
+          <Analytics />
           <PrismicPreview repositoryName={repositoryName} />
         </BaseLayout>
       </ChakraProvider>
