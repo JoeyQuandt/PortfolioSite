@@ -1,7 +1,8 @@
 import { type Content, isFilled } from '@prismicio/client';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { SliceComponentProps, PrismicRichText } from '@prismicio/react';
-import { Stack, Heading, Text, Box, Flex } from '@chakra-ui/react';
+import { Stack, Heading, Text, Box, Flex, Skeleton } from '@chakra-ui/react';
+import { Suspense } from 'react';
 import { LinkTag } from '@/components/shared/link';
 import { FadeInWhenVisible } from '@/utils';
 
@@ -15,11 +16,13 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       alignItems="center"
       flexDirection={['column', 'column', 'row-reverse']}
     >
-      <Box position="relative" objectFit="cover" marginBlock={12} bgColor="tertiary" width={383}>
-        {isFilled.image(slice.primary.image) && (
-          <PrismicNextImage field={slice.primary.image} className="es-fullpage-hero__image" />
-        )}
-      </Box>
+      <Suspense fallback={<Skeleton startColor="tertiary" endColor="primary" />}>
+        <Box position="relative" objectFit="cover" marginBlock={12} bgColor="tertiary" width={383}>
+          {isFilled.image(slice.primary.image) && (
+            <PrismicNextImage field={slice.primary.image} className="es-fullpage-hero__image" />
+          )}
+        </Box>
+      </Suspense>
       <FadeInWhenVisible>
         <Stack color="white" textAlign={['center', 'center', 'left']} maxWidth="600px">
           {isFilled.richText(slice.primary.title) && (
