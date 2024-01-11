@@ -1,7 +1,7 @@
 import { type Content, isFilled } from '@prismicio/client';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { SliceComponentProps, PrismicRichText } from '@prismicio/react';
-import { Stack, Heading, Text, Box, Flex, Skeleton } from '@chakra-ui/react';
+import { Stack, Heading, Text, Box, Flex, Skeleton, SkeletonText } from '@chakra-ui/react';
 import { Suspense } from 'react';
 import { LinkTag } from '@/components/shared/link';
 import { FadeInWhenVisible } from '@/utils';
@@ -25,38 +25,62 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       </Suspense>
       <FadeInWhenVisible>
         <Stack color="white" textAlign={['center', 'center', 'left']} maxWidth="600px">
-          {isFilled.richText(slice.primary.title) && (
-            <PrismicRichText
-              field={slice.primary.title}
-              components={{
-                heading1: ({ children }) => (
-                  <Heading as="h1" fontSize={[30, 50, 60]}>
-                    {children}
-                  </Heading>
-                ),
-              }}
-            />
-          )}
-          {isFilled.richText(slice.primary.description) && (
-            <PrismicRichText
-              field={slice.primary.description}
-              components={{
-                paragraph: ({ children }) => <Text marginBlock="6">{children}</Text>,
-              }}
-            />
-          )}
-          <Box alignItems={['center', 'left', 'left']}>
-            <LinkTag maxWidth="95px">
-              {isFilled.link(slice.primary.callToActionLink) && (
-                <PrismicNextLink
-                  className="es-call-to-action__link"
-                  field={slice.primary.callToActionLink}
-                >
-                  {slice.primary.callToActionLabel || 'Learn more…'}
-                </PrismicNextLink>
-              )}
-            </LinkTag>
-          </Box>
+          <Suspense
+            fallback={
+              <SkeletonText
+                noOfLines={2}
+                skeletonHeight="10"
+                startColor="tertiary"
+                endColor="primary"
+              />
+            }
+          >
+            {isFilled.richText(slice.primary.title) && (
+              <PrismicRichText
+                field={slice.primary.title}
+                components={{
+                  heading1: ({ children }) => (
+                    <Heading as="h1" fontSize={[30, 50, 60]}>
+                      {children}
+                    </Heading>
+                  ),
+                }}
+              />
+            )}
+          </Suspense>
+          <Suspense
+            fallback={
+              <SkeletonText
+                noOfLines={2}
+                skeletonHeight="5"
+                startColor="tertiary"
+                endColor="primary"
+              />
+            }
+          >
+            {isFilled.richText(slice.primary.description) && (
+              <PrismicRichText
+                field={slice.primary.description}
+                components={{
+                  paragraph: ({ children }) => <Text marginBlock="6">{children}</Text>,
+                }}
+              />
+            )}
+          </Suspense>
+          <Suspense fallback={<Skeleton startColor="tertiary" endColor="primary" />}>
+            <Box alignItems={['center', 'left', 'left']}>
+              <LinkTag maxWidth="95px">
+                {isFilled.link(slice.primary.callToActionLink) && (
+                  <PrismicNextLink
+                    className="es-call-to-action__link"
+                    field={slice.primary.callToActionLink}
+                  >
+                    {slice.primary.callToActionLabel || 'Learn more…'}
+                  </PrismicNextLink>
+                )}
+              </LinkTag>
+            </Box>
+          </Suspense>
         </Stack>
       </FadeInWhenVisible>
     </Flex>
