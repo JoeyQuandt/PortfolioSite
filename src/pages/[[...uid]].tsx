@@ -2,6 +2,7 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 import { asLink } from '@prismicio/client';
 import { SliceZone } from '@prismicio/react';
+import { Heading, Skeleton, Box } from '@chakra-ui/react';
 
 import { components } from '@/slices';
 import { createClient } from '@/prismicio';
