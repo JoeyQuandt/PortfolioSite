@@ -1,7 +1,6 @@
 import { Stack, Tag, Flex, Heading } from '@chakra-ui/react';
 import { LinkTag } from '@/components/shared/link';
 import { ProjectCardBackground } from './ProjectCardBackground';
-import { PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import { Content, isFilled } from '@prismicio/client';
 
@@ -41,16 +40,8 @@ export function ProjectCard({
       </Flex>
       {project_show_buttons && (
         <Flex gap={4} marginTop={10}>
-          <LinkTag>
-            {isFilled.link(project_website) && (
-              <PrismicNextLink field={project_website}>Website</PrismicNextLink>
-            )}
-          </LinkTag>
-          <LinkTag>
-            {isFilled.link(project_github) && (
-              <PrismicNextLink field={project_github}>View Code</PrismicNextLink>
-            )}
-          </LinkTag>
+          {isFilled.link(project_website) && <LinkTag href={project_website.url}>Website</LinkTag>}
+          {isFilled.link(project_github) && <LinkTag href={project_github.url}>Github</LinkTag>}
         </Flex>
       )}
     </Stack>

@@ -46,16 +46,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             />
           )}
           <Box alignItems={['center', 'left', 'left']}>
-            <LinkTag maxWidth="95px">
-              {isFilled.link(slice.primary.callToActionLink) && (
-                <PrismicNextLink
-                  className="es-call-to-action__link"
-                  field={slice.primary.callToActionLink}
-                >
-                  {slice.primary.callToActionLabel || 'Learn more…'}
-                </PrismicNextLink>
-              )}
-            </LinkTag>
+            {isFilled.link(slice.primary.callToActionLink) && (
+              <LinkTag maxWidth="95px" href={slice.primary.callToActionLink.url}>
+                {slice.primary.callToActionLabel || 'Learn more…'}
+              </LinkTag>
+            )}
           </Box>
         </Stack>
       </FadeInWhenVisible>
