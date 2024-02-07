@@ -46,7 +46,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               }}
             />
           )}
-          <PrismicRichText field={slice.primary.description} />
           <Box alignItems={['center', 'left', 'left']}>
             {isFilled.link(slice.primary.callToActionLink) && (
               <LinkTag maxWidth="95px" href={slice.primary.callToActionLink.url}>
