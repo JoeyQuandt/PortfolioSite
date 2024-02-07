@@ -328,87 +328,9 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Hero → Primary*
- */
-export interface HeroSliceImageRightPrimary {
-  /**
-   * eyebrowHeadline field in *Hero → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Eyebrow
-   * - **API ID Path**: hero.primary.eyebrowHeadline
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  eyebrowHeadline: prismic.KeyTextField;
-
-  /**
-   * title field in *Hero → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * description field in *Hero → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * image field in *Hero → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * callToActionLabel field in *Hero → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.callToActionLabel
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  callToActionLabel: prismic.KeyTextField;
-
-  /**
-   * callToActionLink field in *Hero → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.callToActionLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  callToActionLink: prismic.LinkField;
-}
-
-/**
- * Image Right variation for Hero Slice
- *
- * - **API ID**: `imageRight`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSliceImageRight = prismic.SharedSliceVariation<
-  'imageRight',
-  Simplify<HeroSliceImageRightPrimary>,
-  never
->;
-
-/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation = HeroSliceDefault | HeroSliceImageRight;
+type HeroSliceVariation = HeroSliceDefault;
 
 /**
  * Hero Shared Slice
@@ -614,10 +536,8 @@ declare module '@prismicio/client' {
       DividerSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
-      HeroSliceImageRightPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
-      HeroSliceImageRight,
       ProjectsSlice,
       ProjectsSliceDefaultPrimary,
       ProjectsSliceDefaultItem,

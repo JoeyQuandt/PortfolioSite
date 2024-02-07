@@ -1,5 +1,5 @@
 import { Content } from '@prismicio/client';
-import { Divider } from '@chakra-ui/react';
+import { Divider, Box } from '@chakra-ui/react';
 import { SliceComponentProps } from '@prismicio/react';
 
 export type DividerProps = SliceComponentProps<Content.DividerSlice>;

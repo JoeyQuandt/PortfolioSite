@@ -3,6 +3,6 @@ const nextConfig = {};
 
 module.exports = {
   images: {
-    domains: ['media.graphassets.com', 'images.prismic.io'],
+    domains: ['media.graphassets.com', 'images.prismic.io', 'images.unsplash.com'],
   },
 };

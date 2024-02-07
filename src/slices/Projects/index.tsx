@@ -44,7 +44,7 @@ const Projects = ({ slice }: ProjectsProps): JSX.Element => {
   const filteredData = projectsData?.filter(item => item.project_tag === selectedOption);
 
   return (
-    <Stack color="white" marginBlock={{ lg: 24 }}>
+    <Stack color="white" bgColor="primary" marginBlock={{ lg: 24 }}>
       <Flex
         flexDirection={['column', 'column', 'row']}
         justifyContent="space-between"

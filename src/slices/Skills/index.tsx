@@ -15,6 +15,7 @@ const Skills = ({ slice }: SkillsProps): JSX.Element => {
   return (
     <FadeInWhenVisible>
       <Grid
+        bgColor="primary"
         templateColumns={{ md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
         gap={14}
         data-slice-type={slice.slice_type}

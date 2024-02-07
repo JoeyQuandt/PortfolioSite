@@ -15,6 +15,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       justifyContent={['center', 'center', 'space-between']}
       alignItems="center"
       flexDirection={['column', 'column', 'row-reverse']}
+      bgColor="primary"
     >
       <Suspense fallback={<Skeleton startColor="tertiary" endColor="primary" />}>
         <Box position="relative" objectFit="cover" marginBlock={12} bgColor="tertiary" width={383}>
@@ -45,6 +46,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               }}
             />
           )}
+          <PrismicRichText field={slice.primary.description} />
           <Box alignItems={['center', 'left', 'left']}>
             {isFilled.link(slice.primary.callToActionLink) && (
               <LinkTag maxWidth="95px" href={slice.primary.callToActionLink.url}>
