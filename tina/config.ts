@@ -32,6 +32,12 @@ export default defineConfig({
         name: "post",
         label: "Posts",
         path: "content/posts",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
         fields: [
           {
             type: "string",
