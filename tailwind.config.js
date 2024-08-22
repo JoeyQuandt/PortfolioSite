@@ -12,7 +12,19 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        SpaceGrotesk: ["Space Grotesk", "sans-serif"],
+      },
       colors: {
+        /* #region  /**=========== Custom Colors =========== */
+        theme: {
+          black: "#151515",
+          green: "#4EE1A0",
+          darkGrey: "#242424",
+          Grey: "#d9d9d9",
+          white: "#FFFFFF",
+        },
+        /* #region  /**=========== Custom Colors =========== */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

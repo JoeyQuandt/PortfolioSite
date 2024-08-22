@@ -1,55 +1,58 @@
-import { defineConfig } from "tinacms";
+import { defineConfig, defineSchema } from "tinacms";
+import { PageTemplate } from "./templates";
+import { GlobalBloks } from "./globals";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.BRANCH || "new-portfolio-site";
 
+const Pages = {
+  label: "Pages",
+  name: "pages",
+  path: "content/pages",
+  format: "mdx",
+  type: "object",
+  list: true,
+  ui: {
+    router: ({ document }) => {
+      // navigate to the home page
+      if (document._sys.filename === "Home") {
+        return "/";
+      }
+      return undefined;
+    },
+  },
+  templates: [PageTemplate],
+};
+
+const schema = defineSchema({
+  collections: [GlobalBloks, Pages],
+});
+
 export default defineConfig({
   branch,
-
-  // Get this from tina.io
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  // Get this from tina.io
-  token: process.env.TINA_TOKEN,
-
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
+  token: process.env.TINA_TOKEN, // Get this from tina.io
+  cmsCallback: (cms) => {
+    cms.flags.set("branch-switcher", true);
+    return cms;
+  },
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "/media",
       publicFolder: "public",
     },
   },
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
-  schema: {
-    collections: [
-      {
-        name: "post",
-        label: "Posts",
-        path: "content/posts",
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-        },
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
-          },
-        ],
-      },
-    ],
+  search: {
+    tina: {
+      indexerToken: process.env.NEXT_PUBLIC_TINA_SEARCH,
+      stopwordLanguages: ["eng"],
+    },
+    indexBatchSize: 100,
+    maxSearchIndexFieldLength: 100,
   },
+  schema,
 });

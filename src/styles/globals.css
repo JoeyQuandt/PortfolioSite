@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -60,10 +62,33 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  /* #region  /**=========== Typography =========== */
+  h1,
+  .h1 {
+    @apply text-[1.5rem] font-medium md:text-[2rem] font-SpaceGrotesk;
   }
-  body {
-    @apply bg-background text-foreground;
+
+  h2,
+  .h2-light {
+    @apply text-[1.125rem] font-normal md:text-[1.5rem] font-SpaceGrotesk;
+  }
+
+  h2,
+  .h2 {
+    @apply text-[1.25rem] font-medium md:text-[1.5rem] font-SpaceGrotesk;
+  }
+
+  h3,
+  .h3 {
+    @apply text-[0.9375rem] font-medium md:text-[1.125rem] font-SpaceGrotesk;
+  }
+
+  body,
+  .p {
+    @apply text-[0.8125rem] font-normal md:text-[0.9375rem] font-SpaceGrotesk;
+  }
+  /* #endregion  /**======== Typography =========== */
+  .layout {
+    @apply xl:max-w-[1440px] mx-auto;
   }
 }
