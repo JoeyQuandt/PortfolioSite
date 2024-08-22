@@ -1,7 +1,7 @@
 import { defineConfig, defineSchema } from "tinacms";
 import { PageTemplate } from "./templates";
 import { GlobalBloks } from "./globals";
-
+import type { Document } from "./__generated__/types";
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.BRANCH || "new-portfolio-site";
 
@@ -13,9 +13,9 @@ const Pages = {
   type: "object",
   list: true,
   ui: {
-    router: ({ document }) => {
+    router: (document: Document) => {
       // navigate to the home page
-      if (document._sys.filename === "Home") {
+      if (document?._sys?.filename === "Home") {
         return "/";
       }
       return undefined;
@@ -25,6 +25,7 @@ const Pages = {
 };
 
 const schema = defineSchema({
+  //@ts-ignore tina error not generated type -->
   collections: [GlobalBloks, Pages],
 });
 

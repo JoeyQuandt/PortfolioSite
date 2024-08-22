@@ -1,5 +1,3 @@
-import { Button } from "./Button";
-
 export const Hero = {
   label: "Hero",
   name: "Hero",
@@ -10,6 +8,5 @@ export const Hero = {
       name: "title",
       type: "string",
     },
-    Button,
   ],
 };
