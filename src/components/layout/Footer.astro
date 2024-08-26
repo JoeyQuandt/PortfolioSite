@@ -15,7 +15,13 @@ import { Button } from "../ui/button";
           fill in the form, and I’ll get back to you as soon as possible.
         </p>
       </div>
-      <form action="/succes" method="post" class="group">
+      <form
+        action="/succes"
+        method="post"
+        class="group"
+        data-netlify="true"
+        netlify-honeypot
+      >
         <input
           type="text"
           id="name"
@@ -49,6 +55,7 @@ import { Button } from "../ui/button";
           class="inputField resize-none"
           required></textarea>
         <Button
+          type="submit"
           className="group-invalid:pointer-events-none group-invalid:opacity-30"
           >Send Message</Button
         >
