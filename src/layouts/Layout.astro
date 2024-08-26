@@ -1,5 +1,6 @@
 ---
 import "@/styles/globals.css";
+import ViewTransitions from "astro/components/ViewTransitions.astro";
 import Navbar from "@/components/layout/Navbar.astro";
 import Footer from "@/components/layout/Footer.astro";
 interface Props {
@@ -7,6 +8,25 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const navItems = [
+  {
+    name: "github",
+    link: "/",
+  },
+  {
+    name: "linkedin",
+    link: "/",
+  },
+  {
+    name: "mail",
+    link: "/",
+  },
+];
+
+const logo = {
+  name: "joeyquandt",
+  link: "/",
+};
 ---
 
 <!doctype html>
@@ -18,12 +38,13 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
-    <Navbar />
+    <Navbar logo={logo} navItems={navItems} />
     <main class="min-h-screen">
       <slot />
     </main>
-    <Footer />
+    <Footer logo={logo} navItems={navItems} />
   </body>
 </html>

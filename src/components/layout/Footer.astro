@@ -1,86 +1,37 @@
 ---
 import { Icon } from "astro-icon/components";
+import NavItems from "./NavItems.astro";
 import { Separator } from "../ui/separator";
-import { Button } from "../ui/button";
+import Form from "../Form.astro";
+
+const { navItems, logo } = Astro.props;
 ---
 
-<footer class="bg-theme-darkGrey pt-[5.25rem] pb-[5.75rem] relative">
-  <Icon name="oval" class="text-9xl absolute bottom-56" />
+<footer
+  class="bg-theme-darkGrey lg:pt-[5.25rem] lg:pb-[5.75rem] pb-16 pt-14 relative"
+>
+  <Icon
+    name="oval"
+    class="text-9xl absolute lg:bottom-56 bottom-72 max-lg:left-[-250px]"
+  />
   <section class="layout">
-    <div class="mb-24 flex justify-between gap-60">
+    <div class="lg:mb-24 flex max-lg:flex-col justify-between lg:gap-60 mb-20">
       <div>
-        <h2 class="text-theme-white mb-9">Contact</h2>
-        <p class="text-theme-Grey xl:max-w-[456px] mb-9">
+        <h2 class="text-theme-white lg:mb-14 max-md:text-center mb-5">
+          Contact
+        </h2>
+        <p class="text-theme-Grey xl:max-w-[456px] mb-9 max-md:text-center">
           I would love to hear about your project and how I could help. Please
           fill in the form, and I’ll get back to you as soon as possible.
         </p>
       </div>
-      <form
-        action="/succes"
-        method="post"
-        class="group"
-        data-netlify="true"
-        netlify-honeypot
-      >
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          placeholder="name"
-          class="inputField"
-        />
-
-        <div class="flex flex-col">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="email"
-            class="inputField peer"
-          />
-          <span
-            class="mt-2 ml-auto hidden text-sm text-theme-error peer-[&:not(:placeholder-shown):not(:focus):invalid]:block"
-          >
-            Sorry, invalid format here
-          </span>
-        </div>
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          cols="50"
-          placeholder="message"
-          class="inputField resize-none"
-          required></textarea>
-        <Button
-          type="submit"
-          className="group-invalid:pointer-events-none group-invalid:opacity-30"
-          >Send Message</Button
-        >
-      </form>
+      <Form />
     </div>
     <Separator className="mb-12" />
-    <div class="flex justify-between text-theme-white">
-      <h2 class="text-[2rem] font-bold">joeyquandt</h2>
-      <ul class="flex justify-between gap-6">
-        <li>
-          <a href="/">
-            <Icon name="github" class="text-2xl" />
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <Icon name="linkedin" class="text-2xl" />
-          </a>
-        </li>
-        <li>
-          <a href="/">
-            <Icon name="mail" class="text-2xl" />
-          </a>
-        </li>
-      </ul>
+    <div
+      class="flex justify-between text-theme-white max-md:flex-col max-md:justify-center max-md:items-center max-md:gap-4"
+    >
+      <NavItems logo={logo} navItems={navItems} />
     </div>
   </section>
 </footer>

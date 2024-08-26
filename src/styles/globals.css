@@ -68,7 +68,7 @@
   /* #region  /**=========== Typography =========== */
   h1,
   .h1 {
-    @apply text-8xl font-bold font-SpaceGrotesk;
+    @apply lg:text-8xl text-5xl font-bold font-SpaceGrotesk;
   }
 
   h2,
@@ -78,7 +78,7 @@
 
   h2,
   .h2 {
-    @apply text-[5.5rem] font-bold font-SpaceGrotesk;
+    @apply md:text-[5.5rem] text-5xl font-bold font-SpaceGrotesk;
   }
 
   h3,
@@ -92,7 +92,7 @@
   }
   /* #endregion  /**======== Typography =========== */
   .layout {
-    @apply xl:max-w-[1110px] mx-auto max-xl:px-7 max-sm:px-4;
+    @apply xl:max-w-[1110px] mx-auto max-xl:px-7 px-4;
   }
 
   .inputField {
