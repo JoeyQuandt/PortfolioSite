@@ -62,10 +62,13 @@
 }
 
 @layer base {
+  body {
+    @apply bg-theme-black;
+  }
   /* #region  /**=========== Typography =========== */
   h1,
   .h1 {
-    @apply text-[1.5rem] font-medium md:text-[2rem] font-SpaceGrotesk;
+    @apply text-8xl font-bold font-SpaceGrotesk;
   }
 
   h2,
@@ -75,7 +78,7 @@
 
   h2,
   .h2 {
-    @apply text-[1.25rem] font-medium md:text-[1.5rem] font-SpaceGrotesk;
+    @apply text-[5.5rem] font-bold font-SpaceGrotesk;
   }
 
   h3,
@@ -85,10 +88,32 @@
 
   body,
   .p {
-    @apply text-[0.8125rem] font-normal md:text-[0.9375rem] font-SpaceGrotesk;
+    @apply text-lg font-normal text-theme-Grey  font-SpaceGrotesk;
   }
   /* #endregion  /**======== Typography =========== */
   .layout {
-    @apply xl:max-w-[1440px] mx-auto;
+    @apply xl:max-w-[1110px] mx-auto max-xl:px-7 max-sm:px-4;
+  }
+
+  .inputField {
+    @apply bg-transparent border-b-[1px] transition duration-500 ease-in border-theme-white p-0 focus:ring-0 focus:outline-none focus:border-theme-green text-theme-Grey w-full placeholder:uppercase placeholder:text-theme-Grey placeholder:font-medium pb-4 pl-6 mb-8 invalid:[&:not(:placeholder-shown):not(:focus)]:border-theme-error;
+  }
+
+  /* Change Autocomplete styles in Chrome*/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border-bottom: 1px solid white;
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #242424 inset;
+    box-shadow: 0 0 0px 1000px #242424 inset;
+    transition: background-color 5000s ease-in-out 0s;
+    color: white;
   }
 }

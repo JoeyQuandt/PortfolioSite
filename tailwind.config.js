@@ -23,6 +23,7 @@ export default {
           darkGrey: "#242424",
           Grey: "#d9d9d9",
           white: "#FFFFFF",
+          error: "#FF6F5B",
         },
         /* #region  /**=========== Custom Colors =========== */
         border: "hsl(var(--border))",
