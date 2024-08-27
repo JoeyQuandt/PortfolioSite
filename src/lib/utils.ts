@@ -14,3 +14,11 @@ export function filterSectionsBySuffix(data, suffixes) {
     return suffixes.some((suffix) => section.__typename.endsWith(`_${suffix}`));
   });
 }
+
+export function InternalLink(page) {
+  return page === "content/pages/home.mdx"
+    ? "/"
+    : page.includes("pages")
+      ? `/${page.replace(/^content\/pages\/|\.mdx$/g, "")}`
+      : `/${page.replace(/^content\/blogs\/|\.mdx$/g, "")}`;
+}

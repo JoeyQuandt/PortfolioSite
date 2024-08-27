@@ -8,7 +8,6 @@ export const Button = {
   ui: {
     defaultItem: {
       ButtonLabel: "Button",
-      ButtonType: "default",
     },
   },
   fields: [
@@ -96,17 +95,6 @@ export const Button = {
           }
         },
       },
-    },
-    {
-      name: "ButtonType",
-      label: "Button Type",
-      type: "string",
-      options: [
-        { label: "default", value: "default" },
-        { label: "secondary", value: "secondary" },
-        { label: "link", value: "link" },
-        { label: "destructive", value: "destructive" },
-      ],
     },
   ],
 };

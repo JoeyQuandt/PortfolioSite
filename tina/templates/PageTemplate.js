@@ -34,18 +34,6 @@ export const PageTemplate = {
               type: "string",
             },
             {
-              type: "string",
-              name: "BackgroundColor",
-              label: "Background Color",
-              description: "Edit the page background color here",
-              ui: {
-                component: "color",
-                colorFormat: "hex",
-                colors: ["#EC4815", "#241748", "#B4F4E0", "#E6FAF8"],
-                widget: "sketch",
-              },
-            },
-            {
               name: "component",
               label: "Page Section",
               description: "All the custom components from tina cms",

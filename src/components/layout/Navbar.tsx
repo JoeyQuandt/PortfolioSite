@@ -6,7 +6,7 @@ type NavbarProps = {
 };
 
 export default function Navbar({ children }: NavbarProps) {
-  const [isHidden, setIsHidden] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
   const { scrollY } = useScroll();
   const lastYRef = useRef(0);
 
