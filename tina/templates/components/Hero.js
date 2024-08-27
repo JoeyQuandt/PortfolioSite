@@ -14,7 +14,7 @@ export const Hero = {
     {
       label: "Title",
       name: "title",
-      type: "string",
+      type: "rich-text",
     },
     {
       label: "Description",

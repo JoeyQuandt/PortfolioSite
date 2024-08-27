@@ -68,7 +68,7 @@
   /* #region  /**=========== Typography =========== */
   h1,
   .h1 {
-    @apply lg:text-8xl text-5xl font-bold font-SpaceGrotesk;
+    @apply lg:text-[5.5rem] lg:leading-[88px] text-[2.5rem] leading-[40px] font-bold font-SpaceGrotesk text-theme-white;
   }
 
   h2,
@@ -97,6 +97,10 @@
 
   .inputField {
     @apply bg-transparent border-b-[1px] transition duration-500 ease-in border-theme-white p-0 focus:ring-0 focus:outline-none focus:border-theme-green text-theme-Grey w-full placeholder:uppercase placeholder:text-theme-Grey placeholder:font-medium pb-4 pl-6 mb-8 invalid:[&:not(:placeholder-shown):not(:focus)]:border-theme-error;
+  }
+
+  .richtext a {
+    @apply underline px-0 decoration-[2px] underline-offset-[15px] decoration-theme-green text-theme-white hover:text-theme-green font-bold rounded-none;
   }
 
   /* Change Autocomplete styles in Chrome*/

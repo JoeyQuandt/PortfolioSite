@@ -9,11 +9,6 @@ export const LayoutSection = {
   },
   fields: [
     {
-      label: "Logo",
-      name: "Logo",
-      type: "image",
-    },
-    {
       name: "navigation_items",
       label: "Navigatie",
       type: "object",
@@ -28,12 +23,6 @@ export const LayoutSection = {
           label: "Navigatie Link",
           name: "navigation_link",
           type: "string",
-        },
-        {
-          label: "Pagina url",
-          name: "page_url",
-          type: "reference",
-          collections: ["pages"],
         },
       ],
     },

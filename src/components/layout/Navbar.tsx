@@ -31,7 +31,7 @@ export default function Navbar({ children }: NavbarProps) {
         },
       }}
       transition={{ duration: 0.2 }}
-      className="lg:py-10 py-5 fixed top-0 left-0 w-full z-10 bg-theme-darkGrey"
+      className="lg:py-10 py-5 fixed top-0 left-0 w-full z-20 bg-theme-darkGrey"
     >
       <nav className="flex justify-between items-center text-theme-white layout max-md:flex-col max-md:justify-center max-md:items-center gap-4">
         {children}
