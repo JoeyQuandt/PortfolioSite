@@ -1,0 +1,10 @@
+---
+import NavItems from "./NavItems.astro";
+import Navbar from "./Navbar";
+
+const { navItems, logo } = Astro.props;
+---
+
+<Navbar client:load>
+  <NavItems logo={logo} navItems={navItems} />
+</Navbar>
