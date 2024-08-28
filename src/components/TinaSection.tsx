@@ -1,4 +1,5 @@
 import Hero from "./TinaComponents/Hero";
+import Skills from "./TinaComponents/Skills";
 import type { PagesPageTemplateSections } from "tina/__generated__/types";
 
 type TinaCMSComponentTypes = {
@@ -9,6 +10,7 @@ const TinaCMSComponent = ({ child }: TinaCMSComponentTypes) => {
   /*Add here all the components from tina cms*/
   const componentMap = {
     sectionComponentHero: Hero,
+    sectionComponentSkills: Skills,
   };
 
   return (

@@ -2,6 +2,7 @@ import { RichText } from "./components/RichText";
 import { Button } from "./components/Button";
 import { Image } from "./components/Image";
 import { Hero } from "./components/Hero";
+import { Skills } from "./components/Skills";
 
 export const PageTemplate = {
   label: "Page Template",
@@ -39,7 +40,7 @@ export const PageTemplate = {
               description: "All the custom components from tina cms",
               list: true,
               type: "object",
-              templates: [RichText, Button, Image, Hero],
+              templates: [RichText, Button, Image, Hero, Skills],
             },
           ],
         },

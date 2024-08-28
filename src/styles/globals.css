@@ -68,7 +68,7 @@
   /* #region  /**=========== Typography =========== */
   h1,
   .h1 {
-    @apply lg:text-[5.5rem] lg:leading-[88px] text-[2.5rem] leading-[40px] font-bold font-SpaceGrotesk text-theme-white;
+    @apply lg:text-[5rem] lg:leading-[88px] text-[2.5rem] leading-[40px] font-bold font-SpaceGrotesk text-theme-white;
   }
 
   h2,
