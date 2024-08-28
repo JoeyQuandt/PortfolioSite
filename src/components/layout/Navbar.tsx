@@ -1,5 +1,5 @@
-import { useScroll, motion, useMotionValueEvent } from "framer-motion";
-import { useState, useRef } from "react";
+import { motion, useScroll } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
 type NavbarProps = {
   children: React.ReactNode;
@@ -10,14 +10,17 @@ export default function Navbar({ children }: NavbarProps) {
   const { scrollY } = useScroll();
   const lastYRef = useRef(0);
 
-  useMotionValueEvent(scrollY, "change", (y) => {
-    const difference = y - lastYRef.current;
-    if (Math.abs(difference) > 50) {
-      setIsHidden(difference > 0);
+  useEffect(() => {
+    const unsubscribe = scrollY.onChange((y) => {
+      const difference = y - lastYRef.current;
+      if (Math.abs(difference) > 50) {
+        setIsHidden(difference > 0);
+        lastYRef.current = y;
+      }
+    });
 
-      lastYRef.current = y;
-    }
-  });
+    return () => unsubscribe();
+  }, [scrollY]);
 
   return (
     <motion.header
