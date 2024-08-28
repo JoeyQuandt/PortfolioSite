@@ -1,5 +1,5 @@
 import { useScroll, motion, useMotionValueEvent } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 type NavbarProps = {
   children: React.ReactNode;
