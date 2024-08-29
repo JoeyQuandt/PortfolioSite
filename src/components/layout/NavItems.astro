@@ -29,7 +29,7 @@ const { logo, navItems } = Astro.props;
     navItems.map((item) => {
       return (
         <li>
-          <a href={item.link} target="_blank">
+          <a href={item.link} target="_blank" aria-label={item.name}>
             {() => {
               switch (item.name) {
                 case "linkedin":

@@ -20,7 +20,7 @@ export default function Hero({ data }: HeroProps) {
           src={data?.image || ""}
           data-tina-field={tinaField(data, "image")}
           className="max-w-[225px] md:min-w-[322px] lg:min-w-[445px] md:min-h-full object-contain bg-custom-gradient mb-9 md:absolute z-10"
-          alt="hero image"
+          alt="hero"
         />
         <div className="flex flex-col w-full max-md:text-center max-md:items-center">
           <RichText

@@ -7,5 +7,5 @@ const response = await client.queries.pages({ relativePath: "Home.mdx" });
 
 <Layout title="Home">
   <!--@ts-ignore custom client:tina for visual editing tina cms -->
-  <TinaCMS client:tina tinaData={response} />
+  <TinaCMS client:load tinaData={response} />
 </Layout>

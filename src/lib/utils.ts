@@ -5,10 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function filterSectionsBySuffix(
-  data: { sections?: any[] },
-  suffixes: string[]
-) {
+export function filterSectionsBySuffix(data: any, suffixes: string[]) {
   if (!data?.sections || !Array.isArray(suffixes)) {
     return [];
   }
