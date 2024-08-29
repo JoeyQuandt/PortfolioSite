@@ -3,8 +3,13 @@ import CustomButton from "./CustomButton";
 import Oval from "@/icons/oval";
 import OvalTwo from "@/icons/Oval_two";
 import RichText from "./RichText";
+import type { PagesPageTemplateSectionsCustom_SectionComponentHero } from "tina/__generated__/types";
 
-export default function Hero({ data }) {
+type HeroProps = {
+  data: PagesPageTemplateSectionsCustom_SectionComponentHero;
+};
+
+export default function Hero({ data }: HeroProps) {
   return (
     <section className="pt-40 pb-9 md:pb-44 relative">
       <Oval className="absolute left-[-200px] lg:left-0" />
@@ -12,7 +17,7 @@ export default function Hero({ data }) {
       <div className="flex-col md:flex-row-reverse items-center text-center md:text-left flex layout z-10 relative">
         <OvalTwo className="absolute bottom-0 right-96 max-lg:hidden z-20" />
         <img
-          src={data.image}
+          src={data?.image || ""}
           data-tina-field={tinaField(data, "image")}
           className="max-w-[225px] md:min-w-[322px] lg:min-w-[445px] md:min-h-full object-contain bg-custom-gradient mb-9 md:absolute z-10"
           alt="hero image"

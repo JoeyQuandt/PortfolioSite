@@ -78,12 +78,12 @@
 
   h2,
   .h2 {
-    @apply md:text-[5.5rem] text-5xl font-bold font-SpaceGrotesk;
+    @apply md:text-[5.5rem] text-5xl font-bold font-SpaceGrotesk text-theme-white;
   }
 
   h3,
   .h3 {
-    @apply text-[0.9375rem] font-medium md:text-[1.125rem] font-SpaceGrotesk;
+    @apply md:text-2xl font-bold font-SpaceGrotesk text-theme-white;
   }
 
   body,

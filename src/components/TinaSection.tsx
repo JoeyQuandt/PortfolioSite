@@ -1,5 +1,6 @@
 import Hero from "./TinaComponents/Hero";
 import Skills from "./TinaComponents/Skills";
+import Projects from "./TinaComponents/Projects";
 import type { PagesPageTemplateSections } from "tina/__generated__/types";
 
 type TinaCMSComponentTypes = {
@@ -11,6 +12,7 @@ const TinaCMSComponent = ({ child }: TinaCMSComponentTypes) => {
   const componentMap = {
     sectionComponentHero: Hero,
     sectionComponentSkills: Skills,
+    sectionComponentProjects: Projects,
   };
 
   return (
@@ -19,29 +21,28 @@ const TinaCMSComponent = ({ child }: TinaCMSComponentTypes) => {
         child.component.map((blok, index) => {
           const typeName = blok?.__typename;
           if (!typeName) {
-            return null; // Safeguard in case __typename is undefined
+            return null;
           }
 
           const match = typeName.match(/([^_]+)$/);
           const componentType = match ? match[1] : null;
 
           if (!componentType) {
-            return null; // Safeguard in case componentType is null
+            return null;
           }
 
           const Component =
             componentMap[componentType as keyof typeof componentMap];
           if (Component) {
-            // Generate a unique key using __typename and index for better stability
             const uniqueKey = `${typeName}-${index}`;
             return (
               <div key={uniqueKey}>
-                <Component data={blok} />
+                <Component data={blok as any} />
               </div>
             );
           }
 
-          return null; // Return null if no matching component is found
+          return null;
         })}
     </section>
   );

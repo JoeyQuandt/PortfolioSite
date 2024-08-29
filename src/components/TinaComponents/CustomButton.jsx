@@ -2,7 +2,7 @@ import { InternalLink } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { tinaField } from "tinacms/dist/react";
 
-export default function CustomButton({ data }) {
+export default function CustomButton({ data, ...props }) {
   return (
     <Button
       data-tina-field={tinaField(data, "ButtonLabel")}
@@ -11,6 +11,7 @@ export default function CustomButton({ data }) {
         (data?.page_url && InternalLink(data?.page_url?.id))
       }
       buttonLinkType={data?.link}
+      {...props}
     >
       {data?.ButtonLabel}
     </Button>
