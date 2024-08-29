@@ -1,0 +1,11 @@
+---
+import client from "tina/__generated__/client";
+import TinaCMS from "@/components/TinaCMS";
+import Layout from "@/layouts/Layout.astro";
+const response = await client.queries.pages({ relativePath: "Home.mdx" });
+---
+
+<Layout title="Home">
+  <!--@ts-ignore custom client:tina for visual editing tina cms -->
+  <TinaCMS client:load tinaData={response} />
+</Layout>

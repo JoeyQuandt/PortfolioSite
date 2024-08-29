@@ -1,0 +1,36 @@
+---
+import Oval from "@/icons/oval";
+import NavItems from "./NavItems.astro";
+import { Separator } from "../ui/separator";
+import Form from "../ui/Form.astro";
+
+const { navItems, logo } = Astro.props;
+---
+
+<footer
+  class="bg-theme-darkGrey lg:pt-[5.25rem] lg:pb-[5.75rem] pb-16 pt-14 relative"
+>
+  <Oval
+    className="text-9xl absolute lg:bottom-56 bottom-72 max-lg:left-[-250px]"
+  />
+  <section class="layout">
+    <div class="lg:mb-24 flex max-lg:flex-col justify-between lg:gap-60 mb-20">
+      <div>
+        <h2 class="text-theme-white lg:mb-10 max-md:text-center mb-5">
+          Contact
+        </h2>
+        <p class="text-theme-Grey xl:max-w-[456px] mb-9 max-md:text-center">
+          I would love to hear about your project and how I could help. Please
+          fill in the form, and I’ll get back to you as soon as possible.
+        </p>
+      </div>
+      <Form />
+    </div>
+    <Separator className="mb-12" />
+    <div
+      class="flex justify-between text-theme-white max-md:flex-col max-md:justify-center max-md:items-center max-md:gap-4"
+    >
+      <NavItems logo={logo} navItems={navItems} />
+    </div>
+  </section>
+</footer>

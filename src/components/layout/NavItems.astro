@@ -1,0 +1,54 @@
+---
+import Linkedin from "@/icons/Linkedin";
+import Mail from "@/icons/Mail";
+import Github from "@/icons/Github";
+
+interface Props {
+  navItems: {
+    name: string;
+    link: string;
+  }[];
+  logo: {
+    name: string;
+    link: string;
+  };
+}
+
+const { logo, navItems } = Astro.props;
+---
+
+<a href={logo.link}>
+  <h2
+    class="text-[2rem] font-bold transition duration-300 ease-out hover:text-theme-green"
+  >
+    {logo.name}
+  </h2>
+</a>
+<ul class="flex items-center justify-between gap-6">
+  {
+    navItems.map((item) => {
+      return (
+        <li>
+          <a href={item.link} target="_blank" aria-label={item.name}>
+            {() => {
+              switch (item.name) {
+                case "linkedin":
+                  return (
+                    <Linkedin className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
+                  );
+                case "mail":
+                  return (
+                    <Mail className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
+                  );
+                case "github":
+                  return (
+                    <Github className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
+                  );
+              }
+            }}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

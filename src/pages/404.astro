@@ -1,0 +1,27 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Button } from "@/components/ui/button";
+import Oval from "@/icons/oval";
+import OvalTwo from "@/icons/Oval_two";
+---
+
+<Layout title="404">
+  <section
+    class="flex flex-col justify-center items-center h-screen relative overflow-hidden"
+  >
+    <Oval className="text-9xl absolute left-[-250px] lg:left-0 top-24" />
+    <OvalTwo
+      name="oval_two"
+      className="text-[175px] absolute right-[-25px] bottom-40"
+    />
+    <div class="text-center flex flex-col items-center gap-6">
+      <h1>404</h1>
+      <p class="max-w-[300px]">
+        The page you're trying to visit doesn't exist (anymore)
+      </p>
+      <a href="/">
+        <Button>Return to the HomePage</Button>
+      </a>
+    </div>
+  </section>
+</Layout>

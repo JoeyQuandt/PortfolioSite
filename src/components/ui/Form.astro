@@ -1,0 +1,46 @@
+---
+import { Button } from "./button";
+---
+
+<form
+  action="/succes"
+  method="post"
+  class="group"
+  data-netlify="true"
+  netlify-honeypot
+>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    required
+    placeholder="name"
+    class="inputField"
+  />
+
+  <div class="flex flex-col">
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      placeholder="email"
+      class="inputField peer"
+    />
+    <span
+      class="mt-2 ml-auto hidden text-sm text-theme-error peer-[&:not(:placeholder-shown):not(:focus):invalid]:block"
+    >
+      Sorry, invalid format here
+    </span>
+  </div>
+  <textarea
+    id="message"
+    name="message"
+    rows="4"
+    cols="50"
+    placeholder="message"
+    class="inputField resize-none"
+    required></textarea>
+  <Button type="submit" className="w-full flex justify-end">Send Message</Button
+  >
+</form>
