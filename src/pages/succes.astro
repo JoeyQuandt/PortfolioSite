@@ -1,21 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Button } from "@/components/ui/button";
-import { Icon } from "astro-icon/components";
+import Oval from "@/icons/oval";
+import OvalTwo from "@/icons/Oval_two";
 ---
 
 <Layout title="Succes">
   <section
     class="flex flex-col justify-center items-center h-screen relative overflow-hidden"
   >
-    <Icon
-      name="oval"
-      class="text-9xl absolute left-[-250px] lg:left-0 top-24"
-    />
-    <Icon
-      name="oval_two"
-      class="text-[175px] absolute right-[-25px] bottom-40"
-    />
+    <Oval className="text-9xl absolute left-[-250px] lg:left-0 top-24" />
+    <OvalTwo className="text-[175px] absolute right-[-25px] bottom-40" />
     <div class="text-center flex flex-col items-center gap-6">
       <h1>Thank you!</h1>
       <p class="max-w-[445px]">

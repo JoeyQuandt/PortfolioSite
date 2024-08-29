@@ -1,5 +1,7 @@
 ---
-import { Icon } from "astro-icon/components";
+import Linkedin from "@/icons/Linkedin";
+import Mail from "@/icons/Mail";
+import Github from "@/icons/Github";
 
 interface Props {
   navItems: {
@@ -22,16 +24,28 @@ const { logo, navItems } = Astro.props;
     {logo.name}
   </h2>
 </a>
-<ul class="flex justify-between gap-6">
+<ul class="flex items-center justify-between gap-6">
   {
     navItems.map((item) => {
       return (
         <li>
-          <a href={item.link}>
-            <Icon
-              name={item.name}
-              class="text-2xl transition duration-300 ease-out hover:text-theme-green"
-            />
+          <a href={item.link} target="_blank">
+            {() => {
+              switch (item.name) {
+                case "linkedin":
+                  return (
+                    <Linkedin className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
+                  );
+                case "mail":
+                  return (
+                    <Mail className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
+                  );
+                case "github":
+                  return (
+                    <Github className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
+                  );
+              }
+            }}
           </a>
         </li>
       );

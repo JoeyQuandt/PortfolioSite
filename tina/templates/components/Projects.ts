@@ -16,7 +16,7 @@ export const Projects = {
       label: "Project",
       name: "project",
       ui: {
-        itemProps: (item) => {
+        itemProps: (item: { title?: string }) => {
           return {
             label: `${item.title ? `Project: ${item.title}` : "Project Item"}`,
           };

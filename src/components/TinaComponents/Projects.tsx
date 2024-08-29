@@ -1,5 +1,5 @@
 import type { PagesPageTemplateSectionsCustom_SectionComponentProjects } from "tina/__generated__/types";
-import ProjectCard from "../ProjectCard";
+import ProjectCard from "../ui/ProjectCard";
 import { tinaField } from "tinacms/dist/react";
 import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";

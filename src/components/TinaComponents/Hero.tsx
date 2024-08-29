@@ -1,8 +1,8 @@
 import { tinaField } from "tinacms/dist/react";
-import CustomButton from "./CustomButton";
+import CustomButton from "../ui/CustomButton";
 import Oval from "@/icons/oval";
 import OvalTwo from "@/icons/Oval_two";
-import RichText from "./RichText";
+import RichText from "../ui/RichText";
 import type { PagesPageTemplateSectionsCustom_SectionComponentHero } from "tina/__generated__/types";
 
 type HeroProps = {

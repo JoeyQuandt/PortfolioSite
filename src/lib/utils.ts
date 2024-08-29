@@ -5,17 +5,20 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function filterSectionsBySuffix(data, suffixes) {
-  if (!data?.sections || !Array.isArray(suffixes) || !data?.sections) {
+export function filterSectionsBySuffix(
+  data: { sections?: any[] },
+  suffixes: string[]
+) {
+  if (!data?.sections || !Array.isArray(suffixes)) {
     return [];
   }
 
-  return data.sections.filter((section) => {
+  return data.sections.filter((section: { __typename: string }) => {
     return suffixes.some((suffix) => section.__typename.endsWith(`_${suffix}`));
   });
 }
 
-export function InternalLink(page) {
+export function InternalLink(page: string) {
   return page === "content/pages/home.mdx"
     ? "/"
     : page.includes("pages")

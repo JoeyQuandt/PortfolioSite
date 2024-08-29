@@ -1,6 +1,6 @@
 import type { PagesPageTemplateSectionsCustom_SectionComponentProjectsProject } from "tina/__generated__/types";
 import { tinaField } from "tinacms/dist/react";
-import CustomButton from "./TinaComponents/CustomButton";
+import CustomButton from "./CustomButton";
 
 type ProjectCardProps = {
   data: PagesPageTemplateSectionsCustom_SectionComponentProjectsProject;

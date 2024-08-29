@@ -22,7 +22,7 @@ export const PageTemplate = {
           name: "custom_section",
           type: "object",
           ui: {
-            itemProps: (item) => {
+            itemProps: (item: { SectionTitle?: string }) => {
               // Field values are accessed by item?.<Field name>
               return {
                 label: `${item.SectionTitle ? `Section: ${item.SectionTitle}` : "Section"}`,
