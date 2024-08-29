@@ -46,6 +46,18 @@ export const Projects = {
           list: true,
           fields: [Button],
         },
+        {
+          label: "Project Status",
+          name: "caterogy",
+          type: "string",
+          list: true,
+          component: "checkbox-group",
+          options: [
+            { label: "All", value: "All" },
+            { label: "Live", value: "Live" },
+            { label: "In Progress", value: "In Progress" },
+          ],
+        },
       ],
     },
   ],
