@@ -1,5 +1,6 @@
 ---
 import "@/styles/globals.css";
+import { SEO } from "astro-seo";
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
@@ -32,10 +33,35 @@ const logo = {
 <!doctype html>
 <html lang="en">
   <head>
+    <SEO
+      title="Portfolio Joey Quandt | Frontend Developer"
+      description="Based in the Netherlands, I'm a front-end developer passionate about building accessible web apps that users love."
+      openGraph={{
+        basic: {
+          title: "Portfolio Joey Quandt | Frontend Developer",
+          type: "image",
+          image: "/joeyquandt-seo-default-image.png",
+        },
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon/favicon.ico" }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: "/joeyquandt-seo-default-image.png",
+          },
+          { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+          { name: "twitter:description", content: "Agent" },
+        ],
+      }}
+    />
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
