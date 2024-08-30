@@ -1,10 +1,15 @@
 ---
 import NavItems from "./NavItems.astro";
 import Navbar from "./Navbar";
+import type { Global_Bloks, Global_BloksQuery } from "tina/__generated__/types";
 
-const { navItems, logo } = Astro.props;
+interface Props {
+  data: Global_BloksQuery;
+}
+
+const { data } = Astro.props;
 ---
 
 <Navbar client:load>
-  <NavItems logo={logo} navItems={navItems} />
+  <NavItems data={data} />
 </Navbar>

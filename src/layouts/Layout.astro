@@ -4,6 +4,7 @@ import { SEO } from "astro-seo";
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
+import client from "tina/__generated__/client";
 interface Props {
   title: string;
 }
@@ -28,6 +29,10 @@ const logo = {
   name: "joeyquandt",
   link: "/",
 };
+
+const { data } = await client.queries.global_bloks({
+  relativePath: "LayoutSection.md",
+});
 ---
 
 <!doctype html>
@@ -68,10 +73,10 @@ const logo = {
     <ViewTransitions />
   </head>
   <body>
-    <Header logo={logo} navItems={navItems} />
+    <Header data={data} />
     <main class="min-h-screen overflow-hidden">
       <slot />
     </main>
-    <Footer logo={logo} navItems={navItems} />
+    <Footer data={data} />
   </body>
 </html>

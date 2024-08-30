@@ -2,45 +2,42 @@
 import Linkedin from "@/icons/Linkedin";
 import Mail from "@/icons/Mail";
 import Github from "@/icons/Github";
-
+import type { Global_BloksQuery } from "tina/__generated__/types";
 interface Props {
-  navItems: {
-    name: string;
-    link: string;
-  }[];
-  logo: {
-    name: string;
-    link: string;
-  };
+  data: Global_BloksQuery;
 }
 
-const { logo, navItems } = Astro.props;
+const { data } = Astro.props;
 ---
 
-<a href={logo.link}>
+<a href="/">
   <h2
     class="text-[2rem] font-bold transition duration-300 ease-out hover:text-theme-green"
   >
-    {logo.name}
+    {data.global_bloks.logo}
   </h2>
 </a>
 <ul class="flex items-center justify-between gap-6">
   {
-    navItems.map((item) => {
+    data.global_bloks.navigation_items?.map((item) => {
       return (
         <li>
-          <a href={item.link} target="_blank" aria-label={item.name}>
+          <a
+            href={item?.navigation_link}
+            target="_blank"
+            aria-label={item?.iconType}
+          >
             {() => {
-              switch (item.name) {
-                case "linkedin":
+              switch (item?.iconType) {
+                case "Linkedin":
                   return (
                     <Linkedin className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
                   );
-                case "mail":
+                case "Mail":
                   return (
                     <Mail className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
                   );
-                case "github":
+                case "Github":
                   return (
                     <Github className="text-2xl transition duration-300 ease-out text-theme-white hover:text-theme-green" />
                   );

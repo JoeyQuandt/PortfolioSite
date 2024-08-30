@@ -14,11 +14,8 @@ const Pages = {
   list: true,
   ui: {
     router: (document: Document) => {
-      // navigate to the home page
-      if (document?._sys?.filename === "Home") {
-        return "/";
-      }
-      return undefined;
+      // navigate to page
+      return document?._sys?.filename.toLocaleLowerCase();
     },
   },
   templates: [PageTemplate],

@@ -9,12 +9,17 @@ export const LayoutSection = {
   },
   fields: [
     {
+      name: "logo",
+      label: "Logo",
+      type: "string",
+    },
+    {
       name: "navigation_items",
       label: "Navigatie",
       type: "object",
       list: true,
       ui: {
-        itemProps: (item) => {
+        itemProps: (item: { navigation_link: string }) => {
           return { label: `${item?.navigation_link || "Navigation item"}` };
         },
       },
@@ -24,30 +29,23 @@ export const LayoutSection = {
           name: "navigation_link",
           type: "string",
         },
+        {
+          label: "Icon Type",
+          name: "iconType",
+          type: "string",
+          options: ["Github", "Linkedin", "Mail"],
+        },
       ],
     },
     {
-      name: "Footer_text",
-      label: "Footer text",
-      type: "object",
-      list: true,
-      ui: {
-        itemProps: (item) => {
-          return { label: `${item.text || "Footer text"}` };
-        },
-      },
-      fields: [
-        {
-          type: "string",
-          label: "tekst",
-          name: "text",
-        },
-        {
-          type: "string",
-          label: "href",
-          name: "Link",
-        },
-      ],
+      label: "Footer Title",
+      name: "footerTitle",
+      type: "string",
+    },
+    {
+      label: "Footer Text",
+      name: "footerText",
+      type: "rich-text",
     },
   ],
 };
