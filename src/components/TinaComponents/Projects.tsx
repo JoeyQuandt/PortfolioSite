@@ -32,8 +32,8 @@ export default function Projects({ data }: ProjectsProps) {
           </SelectTrigger>
           <SelectContent className="bg-theme-darkGrey text-theme-white border-none text-sm font-semibold uppercase">
             <SelectItem value="All">All</SelectItem>
-            <SelectItem value="Live">Live</SelectItem>
             <SelectItem value="In Progress">In Progress</SelectItem>
+            <SelectItem value="Live">Live</SelectItem>
           </SelectContent>
         </Select>
       </div>
