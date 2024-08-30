@@ -8,6 +8,7 @@ export async function getStaticPaths() {
   const pagePaths = pageData.data.pagesConnection.edges;
 
   return pagePaths?.map((item) => {
+    console.log(item);
     const slug =
       item?.node?._sys.filename === "home"
         ? "/"

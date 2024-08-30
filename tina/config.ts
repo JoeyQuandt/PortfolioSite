@@ -13,9 +13,11 @@ const Pages = {
   type: "object",
   list: true,
   ui: {
-    router: (document: Document) => {
-      // navigate to page
-      return document?._sys?.filename.toLocaleLowerCase();
+    router: (props: any) => {
+      if (props.document._sys?.filename === "home") {
+        return "/";
+      }
+      return props.document?._sys?.filename;
     },
   },
   templates: [PageTemplate],
