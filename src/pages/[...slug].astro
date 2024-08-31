@@ -8,14 +8,11 @@ export async function getStaticPaths() {
   const pagePaths = pageData.data.pagesConnection.edges;
 
   return pagePaths?.map((item) => {
-    console.log(item);
-    const slug =
-      item?.node?._sys.filename === "home"
-        ? "/"
-        : item?.node?._sys.filename.toLowerCase();
+    const pathname =
+      item?.node?._sys.filename === "Home" ? "/" : item?.node?._sys.filename;
     const filename = item?.node?._sys.basename;
     return {
-      params: { slug },
+      params: { pathname },
       props: { filename },
     };
   });
@@ -27,5 +24,6 @@ const response = await client.queries.pages({ relativePath: filename ?? "" });
 ---
 
 <Layout title="Home">
+  <!--@ts-ignore custom client:tina for visual editing tina cms -->
   <TinaCMS client:load tinaData={response} />
 </Layout>
