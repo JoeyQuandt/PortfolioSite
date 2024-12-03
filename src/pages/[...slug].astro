@@ -7,6 +7,7 @@ export async function getStaticPaths() {
   const pageData = await client.queries.pagesConnection();
   const pagePaths = pageData.data.pagesConnection.edges;
 
+  /*Dynamic slug Check*/
   return pagePaths?.map((item) => {
     const pathname =
       item?.node?._sys.filename === "Home" ? "/" : item?.node?._sys.filename;
@@ -24,6 +25,5 @@ const response = await client.queries.pages({ relativePath: filename ?? "" });
 ---
 
 <Layout title="Home">
-  <!--@ts-ignore custom client:tina for visual editing tina cms -->
   <TinaCMS client:load tinaData={response} />
 </Layout>

@@ -8,7 +8,7 @@ import { useTina } from "tinacms/dist/react";
 
 type TinaDataType = {
   query: string;
-  variables: { [key: string]: any };
+  variables: object;
   data: PagesQuery;
 };
 
