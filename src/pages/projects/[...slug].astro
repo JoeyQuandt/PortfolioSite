@@ -1,0 +1,31 @@
+---
+import client from "tina/__generated__/client";
+import TinaCMS from "@/components/TinaCMS";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const pageData = await client.queries.projectsConnection();
+  const pagePaths = pageData.data.projectsConnection.edges;
+
+  /*Dynamic slug Check*/
+  return pagePaths?.map((item) => {
+    const slug =
+      item?.node?._sys.filename === "home" ? "/" : item?.node?._sys.filename;
+    const filename = item?.node?._sys.basename;
+    return {
+      params: { slug },
+      props: { filename },
+    };
+  });
+}
+
+const { filename } = Astro.props;
+
+const response = await client.queries.projects({
+  relativePath: filename ?? "",
+});
+---
+
+<Layout title="Home">
+  <!-- <TinaCMS client:load tinaData={response} /> -->
+</Layout>
