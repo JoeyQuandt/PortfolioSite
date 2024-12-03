@@ -10,25 +10,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-const navItems = [
-  {
-    name: "github",
-    link: "https://github.com/JoeyQuandt",
-  },
-  {
-    name: "linkedin",
-    link: "https://www.linkedin.com/in/joey-quandt/",
-  },
-  {
-    name: "mail",
-    link: "mailto:joey.quandt@outlook.com",
-  },
-];
-
-const logo = {
-  name: "joeyquandt",
-  link: "/",
-};
 
 const { data } = await client.queries.global_bloks({
   relativePath: "LayoutSection.md",
@@ -51,7 +32,7 @@ const { data } = await client.queries.global_bloks({
       }}
       extend={{
         // extending the default link tags
-        link: [{ rel: "icon", href: "/favicon/favicon.ico" }],
+        link: [{ rel: "icon", href: "/favicon.ico" }],
         // extending the default meta tags
         meta: [
           {
