@@ -19,17 +19,19 @@ export default function ProjectCard({ data, ...props }: ProjectCardProps) {
           />
         )}
         {/*Hover Efffect*/}
-        <div className="hidden absolute opacity-0 hover:opacity-75 ease-in duration-150 inset-0 bg-black text-white z-40 lg:flex flex-col justify-center items-center gap-48">
-          {data?.buttons?.map((item, index) => {
-            return (
-              <CustomButton
-                data={item?.Button}
-                key={index}
-                className="opacity-100"
-              />
-            );
-          })}
-        </div>
+        {data.buttons && (
+          <div className="hidden absolute opacity-0 hover:opacity-75 ease-in duration-150 inset-0 bg-black text-white z-40 lg:flex flex-col justify-center items-center gap-48">
+            {data?.buttons?.map((item, index) => {
+              return (
+                <CustomButton
+                  data={item?.Button}
+                  key={index}
+                  className="opacity-100"
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
       <h3 data-tina-field={tinaField(data, "title")} className="uppercase mb-2">
         {data.title}
