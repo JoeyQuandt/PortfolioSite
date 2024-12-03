@@ -9,11 +9,11 @@ export async function getStaticPaths() {
 
   /*Dynamic slug Check*/
   return pagePaths?.map((item) => {
-    const pathname =
+    const slug =
       item?.node?._sys.filename === "Home" ? "/" : item?.node?._sys.filename;
     const filename = item?.node?._sys.basename;
     return {
-      params: { pathname },
+      params: { slug },
       props: { filename },
     };
   });
