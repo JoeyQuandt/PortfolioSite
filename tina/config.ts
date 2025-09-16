@@ -3,7 +3,7 @@ import { PageTemplate } from "./templates";
 import { GlobalBloks } from "./globals";
 import type { Document } from "./__generated__/types";
 // Your hosting provider likely exposes this as an environment variable
-const branch = process.env.BRANCH || "new-portfolio-site";
+const branch = process.env.BRANCH || "main";
 
 const Pages = {
   label: "Pages",
