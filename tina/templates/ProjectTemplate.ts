@@ -25,7 +25,11 @@ export const ProjectTemplate = {
             itemProps: (item: { SectionTitle?: string }) => {
               // Field values are accessed by item?.<Field name>
               return {
-                label: `${item.SectionTitle ? `Section: ${item.SectionTitle}` : "Section"}`,
+                label: `${
+                  item.SectionTitle
+                    ? `Section: ${item.SectionTitle}`
+                    : "Section"
+                }`,
               };
             },
           },
@@ -41,7 +45,7 @@ export const ProjectTemplate = {
               description: "All the custom components from tina cms",
               list: true,
               type: "object",
-              templates: [Hero, Skills, Projects],
+              templates: [Hero, RichText],
             },
           ],
         },
