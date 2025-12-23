@@ -5,7 +5,7 @@ navigation_items:
     iconType: Github
   - navigation_link: 'https://www.linkedin.com/in/joey-quandt/'
     iconType: Linkedin
-  - navigation_link: 'mailto:joey.quandt@outlook.com'
+  - navigation_link: 'mailto:joey.r.quandt@gmail.com'
     iconType: Mail
 footerTitle: Contact
 footerText: >
