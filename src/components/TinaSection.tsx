@@ -9,7 +9,6 @@ type TinaCMSComponentTypes = {
 };
 
 const TinaCMSComponent = ({ child }: TinaCMSComponentTypes) => {
-  console.log(child);
   /*Add here all the components from tina cms*/
   const componentMap = {
     sectionComponentHero: Hero,
