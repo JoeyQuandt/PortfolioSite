@@ -83,7 +83,17 @@
 
   h3,
   .h3 {
-    @apply md:text-2xl font-bold font-SpaceGrotesk text-theme-white;
+    @apply md:text-2xl text-xl font-bold font-SpaceGrotesk text-theme-white;
+  }
+
+  h4,
+  .h4 {
+    @apply md:text-xl text-lg font-bold font-SpaceGrotesk text-theme-white;
+  }
+
+  h5,
+  .h5 {
+    @apply md:text-lg text-base font-bold font-SpaceGrotesk text-theme-white;
   }
 
   body,

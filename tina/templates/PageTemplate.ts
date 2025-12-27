@@ -45,7 +45,7 @@ export const PageTemplate = {
               description: "All the custom components from tina cms",
               list: true,
               type: "object",
-              templates: [Hero, Skills, Projects, RichText],
+              templates: [Hero, Skills, Projects],
             },
           ],
         },

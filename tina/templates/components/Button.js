@@ -64,7 +64,7 @@ export const Button = {
       name: "page_url",
       label: "ButtonLink",
       type: "reference",
-      collections: ["pages"],
+      collections: ["pages", "projects"],
       ui: {
         /*conditional check*/
         component: (props) => {

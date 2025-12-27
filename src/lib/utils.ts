@@ -19,6 +19,6 @@ export function InternalLink(page: string) {
   return page === "content/pages/home.mdx"
     ? "/"
     : page.includes("pages")
-      ? `/${page.replace(/^content\/pages\/|\.mdx$/g, "")}`
-      : `/${page.replace(/^content\/blogs\/|\.mdx$/g, "")}`;
+    ? `/${page.replace(/^content\/pages\/|\.mdx$/g, "")}`
+    : `/${page.replace(/^content\/|\.mdx$/g, "")}`;
 }
