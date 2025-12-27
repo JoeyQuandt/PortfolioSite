@@ -2,6 +2,7 @@ import Hero from "./TinaComponents/Hero";
 import Skills from "./TinaComponents/Skills";
 import Projects from "./TinaComponents/Projects";
 import type { PagesPageTemplateSections } from "tina/__generated__/types";
+import RichText from "./ui/RichText";
 
 type TinaCMSComponentTypes = {
   child: PagesPageTemplateSections;
@@ -13,6 +14,7 @@ const TinaCMSComponent = ({ child }: TinaCMSComponentTypes) => {
     sectionComponentHero: Hero,
     sectionComponentSkills: Skills,
     sectionComponentProjects: Projects,
+    sectionComponentRichtext: RichText,
   };
 
   return (

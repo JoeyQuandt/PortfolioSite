@@ -25,7 +25,11 @@ export const PageTemplate = {
             itemProps: (item: { SectionTitle?: string }) => {
               // Field values are accessed by item?.<Field name>
               return {
-                label: `${item.SectionTitle ? `Section: ${item.SectionTitle}` : "Section"}`,
+                label: `${
+                  item.SectionTitle
+                    ? `Section: ${item.SectionTitle}`
+                    : "Section"
+                }`,
               };
             },
           },

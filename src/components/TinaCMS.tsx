@@ -2,34 +2,52 @@ import { filterSectionsBySuffix } from "@/lib/utils";
 import TinaCMSComponent from "./TinaSection";
 import type {
   PagesQuery,
+  ProjectsQuery,
   PagesPageTemplateSections,
 } from "tina/__generated__/types";
 import { useTina } from "tinacms/dist/react";
+import { TinaProject } from "./TinaProjects";
 
-type TinaDataType = {
+type TinaPageData = {
   query: string;
   variables: object;
   data: PagesQuery;
 };
 
-type TinaCMSProps = {
-  tinaData: TinaDataType;
+type TinaProjectData = {
+  query: string;
+  variables: object;
+  data: ProjectsQuery;
 };
 
-export default function TinaCMS({ tinaData }: TinaCMSProps) {
-  const { data } = useTina(tinaData);
+type TinaCMSProps =
+  | { type: "pages"; tinaData: TinaPageData }
+  | { type: "projects"; tinaData: TinaProjectData };
 
-  //Helper to filter out "section"
+const TinaPage = ({ tinaData }: { tinaData: TinaPageData }) => {
+  const { data } = useTina(tinaData);
   const sectionsEndingWithUnderscoreSection = filterSectionsBySuffix(
     data.pages,
     ["section"]
   );
   return (
-    <div className="flex flex-col relative top-0 h-fit">
+    <>
       {sectionsEndingWithUnderscoreSection.map(
         (section: PagesPageTemplateSections, index: number) => {
           return <TinaCMSComponent key={`SECTION-${index}`} child={section} />;
         }
+      )}
+    </>
+  );
+};
+
+export default function TinaCMS(props: TinaCMSProps) {
+  return (
+    <div className="flex flex-col relative top-0 h-fit">
+      {props.type === "pages" ? (
+        <TinaPage tinaData={props.tinaData} />
+      ) : (
+        <TinaProject tinaData={props.tinaData} />
       )}
     </div>
   );

@@ -3,6 +3,8 @@ import client from "tina/__generated__/client";
 import TinaCMS from "@/components/TinaCMS";
 import Layout from "@/layouts/Layout.astro";
 
+import { useTina } from "tinacms/dist/react";
+
 export async function getStaticPaths() {
   const pageData = await client.queries.projectsConnection();
   const pagePaths = pageData.data.projectsConnection.edges;
@@ -26,6 +28,6 @@ const response = await client.queries.projects({
 });
 ---
 
-<Layout title="Home">
-  <!-- <TinaCMS client:load tinaData={response} /> -->
+<Layout title="Projects">
+  <TinaCMS client:load tinaData={response} type="projects" />
 </Layout>
