@@ -3,9 +3,11 @@ import client from "tina/__generated__/client";
 import TinaCMS from "@/components/TinaCMS";
 import Layout from "@/layouts/Layout.astro";
 
+import { useTina } from "tinacms/dist/react";
+
 export async function getStaticPaths() {
-  const pageData = await client.queries.pagesConnection();
-  const pagePaths = pageData.data.pagesConnection.edges;
+  const pageData = await client.queries.projectsConnection();
+  const pagePaths = pageData.data.projectsConnection.edges;
 
   /*Dynamic slug Check*/
   return pagePaths?.map((item) => {
@@ -21,9 +23,11 @@ export async function getStaticPaths() {
 
 const { filename } = Astro.props;
 
-const response = await client.queries.pages({ relativePath: filename ?? "" });
+const response = await client.queries.projects({
+  relativePath: filename ?? "",
+});
 ---
 
-<Layout title="Home">
-  <TinaCMS client:load tinaData={response} type="pages" />
+<Layout title="Projects">
+  <TinaCMS client:load tinaData={response} type="projects" />
 </Layout>

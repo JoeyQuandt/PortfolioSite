@@ -1,5 +1,4 @@
 import { Button } from "./Button";
-import { Image } from "./Image";
 
 export const Hero = {
   label: "Hero",
