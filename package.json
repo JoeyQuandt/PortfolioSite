@@ -10,17 +10,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/check": "0.9.6",
+    "@astrojs/react": "4.4.2",
+    "@astrojs/sitemap": "3.6.1",
+    "@astrojs/tailwind": "6.0.2",
     "@formkit/auto-animate": "^0.8.2",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.2.4",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.14.3",
+    "astro": "5.16.7",
     "astro-seo": "^0.8.4",
     "baseline-browser-mapping": "^2.9.11",
     "caniuse-lite": "^1.0.30001761",
@@ -32,11 +32,11 @@
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "tinacms": "^2.2.0",
+    "tinacms": "^3.2.0",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@tinacms/cli": "^1.6.0",
+    "@tinacms/cli": "^2.0.7",
     "@types/node": "^22.4.2"
   }
 }
