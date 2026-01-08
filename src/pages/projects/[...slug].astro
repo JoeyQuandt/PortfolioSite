@@ -1,6 +1,6 @@
 ---
 import client from "tina/__generated__/client";
-import TinaCMS from "@/components/TinaCMS";
+import PageRenderer from "@/components/PageRenderer";
 import Layout from "@/layouts/Layout.astro";
 
 import { useTina } from "tinacms/dist/react";
@@ -29,5 +29,5 @@ const response = await client.queries.projects({
 ---
 
 <Layout title="Projects">
-  <TinaCMS client:load tinaData={response} type="projects" />
+  <PageRenderer client:load tinaData={response} type="projects" />
 </Layout>

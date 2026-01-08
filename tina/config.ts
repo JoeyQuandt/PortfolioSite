@@ -5,6 +5,16 @@ import type { Document } from "./__generated__/types";
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.BRANCH || "main";
 
+// Type for the router function props
+type RouterProps = {
+  document: {
+    _sys: {
+      filename: string;
+      relativePath?: string;
+    };
+  };
+};
+
 const Pages = {
   label: "Pages",
   name: "pages",
@@ -13,7 +23,7 @@ const Pages = {
   type: "object",
   list: true,
   ui: {
-    router: (props: any) => {
+    router: (props: RouterProps) => {
       if (props.document._sys?.filename === "home") {
         return "/";
       }
@@ -31,7 +41,7 @@ const Projects = {
   type: "object",
   list: true,
   ui: {
-    router: (props: any) => {
+    router: (props: RouterProps) => {
       return `/projects/${props.document?._sys?.filename}`;
     },
   },

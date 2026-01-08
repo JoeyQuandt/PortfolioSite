@@ -1,14 +1,14 @@
-import Hero from "./TinaComponents/Hero";
-import Skills from "./TinaComponents/Skills";
-import Projects from "./TinaComponents/Projects";
+import Hero from "./sections/Hero";
+import Skills from "./sections/Skills";
+import Projects from "./sections/Projects";
 import type { PagesPageTemplateSections } from "tina/__generated__/types";
 import RichText from "./ui/RichText";
 
-type TinaCMSComponentTypes = {
+type SectionRendererProps = {
   child: PagesPageTemplateSections;
 };
 
-const TinaCMSComponent = ({ child }: TinaCMSComponentTypes) => {
+const SectionRenderer = ({ child }: SectionRendererProps) => {
   /*Add here all the components from tina cms*/
   const componentMap = {
     sectionComponentHero: Hero,
@@ -50,4 +50,4 @@ const TinaCMSComponent = ({ child }: TinaCMSComponentTypes) => {
   );
 };
 
-export default TinaCMSComponent;
+export default SectionRenderer;
