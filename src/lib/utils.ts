@@ -1,24 +1,43 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { CMS_PATHS } from "./constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function filterSectionsBySuffix(data: any, suffixes: string[]) {
+type SectionWithTypename = { __typename?: string };
+
+export function filterSectionsBySuffix<T extends SectionWithTypename>(
+  data: { sections?: (T | null)[] | null },
+  suffixes: string[]
+): T[] {
   if (!data?.sections || !Array.isArray(suffixes)) {
     return [];
   }
 
-  return data.sections.filter((section: { __typename: string }) => {
-    return suffixes.some((suffix) => section.__typename.endsWith(`_${suffix}`));
+  return data.sections.filter((section): section is T => {
+    return (
+      !!section &&
+      !!section.__typename &&
+      suffixes.some((suffix) => section.__typename!.endsWith(`_${suffix}`))
+    );
   });
 }
 
 export function InternalLink(page: string) {
-  return page === "content/pages/home.mdx"
+  return page === CMS_PATHS.HOME
     ? "/"
     : page.includes("pages")
-    ? `/${page.replace(/^content\/pages\/|\.mdx$/g, "")}`
-    : `/${page.replace(/^content\/|\.mdx$/g, "")}`;
+    ? `/${page.replace(
+        new RegExp(`^${CMS_PATHS.PAGES_DIR}|${CMS_PATHS.MDX_EXTENSION}$`, "g"),
+        ""
+      )}`
+    : `/${page.replace(
+        new RegExp(
+          `^${CMS_PATHS.CONTENT_DIR}|${CMS_PATHS.MDX_EXTENSION}$`,
+          "g"
+        ),
+        ""
+      )}`;
 }
